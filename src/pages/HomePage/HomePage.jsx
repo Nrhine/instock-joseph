@@ -1,5 +1,5 @@
 import "./HomePage.scss";
-import Header from "../../src/components/Header/Header";
+import Header from "../../components/Header/Header";
 
 const HomePage = () => {
   return (

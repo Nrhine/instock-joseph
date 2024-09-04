@@ -1,0 +1,8 @@
+@use '../../styles/partials/variables' as *;
+
+.header {
+    background-color: $graphite;
+    display: flex;
+    justify-content: space-between;
+    color: $white;
+}
