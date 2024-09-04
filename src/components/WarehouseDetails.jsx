@@ -4,7 +4,7 @@ import edit from '../assets/Icons/edit-white-24px.svg';
 
 function WarehouseDetails() {
   return (
-    <section className="test">
+    <>
       <section className="warehouse">
         <div className="warehouse__container-top">
           <img src={back_arrow} alt="go back" />
@@ -35,7 +35,7 @@ function WarehouseDetails() {
           </div>
         </div>
       </section>
-    </section>
+    </>
   );
 }
 
