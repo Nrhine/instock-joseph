@@ -1,11 +1,11 @@
-import "./HomePage.scss";
+import "./WarehousesPage.scss";
 import Header from "../../components/Header/Header";
 
-const HomePage = () => {
+const WarehousesPage = () => {
   return (
     <>
       <Header />
     </>
   );
 };
-export default HomePage;
+export default WarehousesPage;
