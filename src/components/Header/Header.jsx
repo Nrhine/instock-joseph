@@ -4,9 +4,9 @@ import Button from "../Button/Button";
 
 const Header = () => {
   return (
-    <nav className="header">
+    <header className="header">
       <img src={logo} alt="instock logo" className="header__logo" />
-      <div className="header__nav">
+      <nav className="header__nav">
         <Button
           text="Warehouses"
           className="button__header button__header--active"
@@ -15,8 +15,8 @@ const Header = () => {
           text="Inventory"
           className="button__header button__header--inactive"
         />
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 export default Header;
