@@ -1,0 +1,31 @@
+.form-field {
+    height: 36px;
+    width: 100%;
+    border: 1px solid #5c667e;
+    border-radius: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+
+    background-color: white;
+    color: #232940;
+    outline: none;
+
+    // Desktop and Tablet styles (add once mixins are done)
+    // height: 38px;    
+
+    &:focus {
+        border-color: #2E66E5;
+    }
+    &::placeholder {
+        color: #5c667e;
+    }
+
+    &--search {
+        background-image: url('../../assets/Icons/search-24px.svg');
+        background-repeat: no-repeat;
+        background-position-x: calc(100% - 16px);
+        background-position-y: center;
+        padding-right: 40px; 
+    }
+}
