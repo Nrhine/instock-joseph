@@ -1,7 +1,7 @@
-import "./App.scss";
-import React from "react";
-import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import './App.scss';
+import React from 'react';
+import WarehousesPage from './pages/WarehousesPage/WarehousesPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
