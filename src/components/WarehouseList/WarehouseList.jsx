@@ -16,17 +16,19 @@ function WarehouseList() {
             </div>
             <div className="warehouse-list__table">
                 <div className="warehouse-item">
-                    <div className="warehouse-item__location">
-                        <p className="warehouse-item__label">WAREHOUSE</p>
-                        <p className="warehouse-item__copy">Manhattan</p>
-                        <p className="warehouse-item__label">ADDRESS</p>
-                        <p className="warehouse-item__copy">503 Broadway, New York, USA</p>
-                    </div>
-                    <div className="warehouse-item__contact">
-                        <p className="warehouse-item__label">CONTACT NAME</p>
-                        <p className="warehouse-item__copy">PARMIN AUJLA</p>
-                        <p className="warehouse-item__label">CONTACT INFORMATION</p>
-                        <p className="warehouse-item__copy">paujla@instock.com</p>
+                    <div className="warehouse-item__body">
+                        <div className="warehouse-item__location">
+                            <p className="warehouse-item__label">WAREHOUSE</p>
+                            <p className="warehouse-item__copy warehouse-item__link">Manhattan</p>
+                            <p className="warehouse-item__label">ADDRESS</p>
+                            <p className="warehouse-item__copy">503 Broadway, New York, USA</p>
+                        </div>
+                        <div className="warehouse-item__contact">
+                            <p className="warehouse-item__label">CONTACT NAME</p>
+                            <p className="warehouse-item__copy">PARMIN AUJLA</p>
+                            <p className="warehouse-item__label">CONTACT INFORMATION</p>
+                            <p className="warehouse-item__copy">paujla@instock.com</p>
+                        </div>
                     </div>
                     <div className="warehouse-item__icons">
                         <img src={trash} alt="delete icon" className="warehouse-item__icon" />

@@ -1,0 +1,36 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.warehouse-list {
+    background-color: $white;
+
+    &__head {
+        display: flex;
+        flex-direction: column;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    &__table {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.warehouse-item {
+    &__body {
+        display: flex;
+        flex-direction: row;
+    }
+    &__label {
+        color: $slate;
+    }
+    &__copy {
+        color: $black;
+    }
+    &__icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
