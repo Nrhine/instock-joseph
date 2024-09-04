@@ -1,5 +1,12 @@
 import './App.scss';
+import WarehouseDetails from './components/WarehouseDetails';
 
-function App() {}
+function App() {
+  return (
+    <>
+      <WarehouseDetails />
+    </>
+  );
+}
 
 export default App;
