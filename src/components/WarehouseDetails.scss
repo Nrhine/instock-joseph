@@ -6,3 +6,19 @@
   box-sizing: border-box;
   padding: 1rem;
 }
+
+.warehouse {
+  background-color: $indigo;
+  border-radius: 50%;
+  // height: 2.25rem;
+  &__container {
+    border: 1px solid black;
+    border-radius: 1.25rem 1.25rem 0 0;
+
+    &-top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
