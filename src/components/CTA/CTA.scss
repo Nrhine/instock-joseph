@@ -1,13 +1,19 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .CTA {
     height: 36px;
     width: 100%;
     border-width: 0;
     border-radius: 20px;
 
-    // Desktop and Tablet styles (add once mixins are done)
-    // height: 38px;
-    // padding-left: 16px;
-    // padding-right: 16px;
+    @include tablet {
+        height: 38px;
+        padding-left: 16px;
+        padding-right: 16px;
+        width: auto;
+    }
 
     &--primary {
         background-color: #2E66E5;

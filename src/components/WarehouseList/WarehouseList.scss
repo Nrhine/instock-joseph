@@ -2,6 +2,24 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+.p1 {
+    font-size: 0.938rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+}
+
+.p2 {
+    font-size: 0.813rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+}
+
+.p3 {
+    font-size: 0.688rem;
+    font-weight: 400;
+    line-height: 1rem;
+}
+
 .warehouse-list {
     background-color: $white;
 
@@ -10,27 +28,63 @@
         flex-direction: column;
         padding-left: 2rem;
         padding-right: 2rem;
+        
+        @include tablet {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
-    &__table {
+    &__nav {
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+        }
+        @include desktop {
+            width: 40%;
+        }
+    }
+    &__title {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        margin: 0;
+    }
+    &__search, &__add {
+        margin-bottom: 1rem;
+        @include tablet {
+            margin: 0 0.5rem;
+        }
+    }
+    &__search {
+        @include desktop {
+            flex-grow: 1;
+        }
+    }
+    &__header-row {
+        display: none;
         padding-left: 2rem;
         padding-right: 2rem;
+        background-color: $grey;
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+        }
     }
-}
-
-.warehouse-item {
-    &__body {
+    &__table-headers {
         display: flex;
         flex-direction: row;
+        flex-grow: 1;
     }
-    &__label {
+    &__table-header {
+        width: 25%;
         color: $slate;
+        font-weight: 600;
     }
-    &__copy {
-        color: $black;
-    }
-    &__icons {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+    &__action-header {
+        width: 80px;
+        text-align: right;
+        color: $slate;
+        font-weight: 600;
     }
 }
