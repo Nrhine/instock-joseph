@@ -10,7 +10,7 @@ const WarehousesPage = () => {
       <Header />
       <DeleteInventoryPopUp />
       <WarehouseList />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
