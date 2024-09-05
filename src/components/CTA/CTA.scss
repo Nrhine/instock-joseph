@@ -1,0 +1,40 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.CTA {
+    height: 36px;
+    width: 100%;
+    border-width: 0;
+    border-radius: 20px;
+
+    @include tablet {
+        height: 38px;
+        padding-left: 16px;
+        padding-right: 16px;
+        width: auto;
+    }
+
+    &--primary {
+        background-color: #2E66E5;
+        color: white;
+        &:hover {
+            background-color:#232940;
+        }
+    }
+    &--secondary {
+        background-color: white;
+        color: #5c667e;
+        border: 1px solid #bdc5d5;
+        &:hover {
+            color:#2E66E5;
+            border-color: #2E66E5;
+        }
+    }
+    &--delete {
+        background-color: #c94515;
+        color: white;
+        &:hover {
+            background-color:#232940;
+        }
+    }
+}

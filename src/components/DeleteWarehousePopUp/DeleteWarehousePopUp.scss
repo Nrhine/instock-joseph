@@ -1,0 +1,34 @@
+@use "../../styles/partials/mixins" as *;
+
+.delete-warehouse-popup {
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &__close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    &__title {
+        padding: 1.5rem 0;
+    }
+
+    &__buttons-container {
+        display: flex;
+        gap: 1rem;
+    }
+
+    @include tablet {
+        & {
+            padding: 1.5rem 3rem;
+        }
+        &__buttons-container {
+            justify-content: flex-end;
+            padding-top: 1.5rem;
+             
+        }
+    }
+}

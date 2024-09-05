@@ -1,0 +1,140 @@
+@use '../styles/partials/global' as *;
+@use '../styles/partials/mixins' as *;
+@use '../styles/partials/variables' as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.test {
+  padding: 1rem;
+}
+
+.warehouse {
+  border-radius: 0.25rem 0.25rem 0 0;
+  background-color: $white;
+
+  &__container {
+    &-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 1rem;
+
+      @include tablet {
+        padding: 1.906rem;
+      }
+    }
+    &-bottom {
+      border-top: 1px solid $cloud;
+      border-bottom: 1px solid $cloud;
+
+      @include tablet {
+        display: flex;
+        align-items: center;
+        padding: 1.906rem;
+      }
+    }
+  }
+
+  &__header {
+    width: 100%;
+    padding-left: 1rem;
+    font-weight: 600;
+  }
+
+  &__edit {
+    width: 1.25rem;
+
+    &-text {
+      display: none;
+
+      @include tablet {
+        display: inline-block;
+        color: $white;
+        font-size: 0.875rem;
+      }
+    }
+
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      min-height: 36px;
+      background-color: $indigo;
+      border-radius: 50%;
+
+      @include tablet {
+        border-radius: 1.25rem;
+        width: auto;
+        padding: 0.5rem 1rem;
+        gap: 0.625rem;
+      }
+    }
+  }
+
+  &__address {
+    font-size: 0.813rem;
+    color: $black;
+    padding-top: 0.25rem;
+
+    @include tablet {
+      font-size: 0.875rem;
+    }
+
+    &-container {
+      padding: 1rem;
+
+      @include tablet {
+        width: 10rem;
+        padding: 0;
+        margin-right: 6rem;
+      }
+
+      @include desktop {
+        margin-right: 24rem;
+      }
+    }
+  }
+
+  &__details {
+    &-label {
+      font-size: 0.688rem;
+      text-transform: uppercase;
+      color: $slate;
+
+      @include tablet {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  &__contact {
+    color: $black;
+    font-size: 0.813rem;
+    padding-top: 0.25rem;
+
+    @include tablet {
+      font-size: 0.875rem;
+    }
+
+    &-container {
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+
+      @include tablet {
+        padding: 0 0 0 1.906rem;
+        border-left: 1px solid $cloud;
+        gap: 3rem;
+      }
+
+      @include desktop {
+        gap: 10rem;
+      }
+    }
+  }
+}
