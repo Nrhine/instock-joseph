@@ -11,10 +11,3 @@
         @content;
     }
 }
-
-@mixin button-default {
-    padding: 0 1rem;
-    border-radius: 20px;
-    border: none;
-    height: 2.25rem;
-}

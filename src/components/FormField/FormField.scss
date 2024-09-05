@@ -1,0 +1,37 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.form-field {
+    height: 36px;
+    width: 100%;
+    border: 1px solid $cloud;
+    border-radius: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+
+    background-color: $white;
+    color: $graphite;
+    outline: none;
+
+    @include tablet {
+        height: 38px;
+        width: auto;
+    }
+
+    &:focus {
+        border-color: $indigo;
+    }
+    &::placeholder {
+        color: $slate;
+    }
+
+    &--search {
+        background-image: url('../../assets/Icons/search-24px.svg');
+        background-repeat: no-repeat;
+        background-position-x: calc(100% - 16px);
+        background-position-y: center;
+        padding-right: 40px; 
+    }
+}
