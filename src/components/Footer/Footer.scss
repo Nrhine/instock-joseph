@@ -1,0 +1,17 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    color: $slate;
+
+    @include tablet {
+        padding: 1.5rem 2rem;
+    }
+
+    @include desktop {
+        padding: 1.5rem 3.938rem;
+    }
+}

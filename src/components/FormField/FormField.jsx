@@ -1,8 +1,10 @@
 import './FormField.scss'
 
-function FormField({ className, placeholder, name }) {
+function FormField({ className, placeholder, name, value, onChange }) {
   return (
-    <input className={"form-field " + className} type="text" placeholder={placeholder} name={name} />
+    <input 
+    className={"form-field " + className} type="text" placeholder={placeholder} name={name} value={value} onChange={onChange} 
+    />
   )
 }
 
