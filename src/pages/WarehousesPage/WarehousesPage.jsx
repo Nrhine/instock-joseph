@@ -9,10 +9,8 @@ const WarehousesPage = () => {
   return (
     <>
       <Header />
-      <DeleteInventoryPopUp />
-      <DeleteWarehousePopUp />
       <WarehouseList />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
