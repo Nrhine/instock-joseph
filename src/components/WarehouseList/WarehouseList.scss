@@ -1,24 +1,5 @@
-@use "../../styles/partials/global" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
-
-.p1 {
-    font-size: 0.938rem;
-    font-weight: 400;
-    line-height: 1.625rem;
-}
-
-.p2 {
-    font-size: 0.813rem;
-    font-weight: 400;
-    line-height: 1.25rem;
-}
-
-.p3 {
-    font-size: 0.688rem;
-    font-weight: 400;
-    line-height: 1rem;
-}
 
 .warehouse-list {
     background-color: $white;

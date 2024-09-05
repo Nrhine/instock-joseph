@@ -9,19 +9,27 @@ function WarehouseItem({ data }) {
         <div className="warehouse-item">
             <div className="warehouse-item__body">
                 <div className="warehouse-item__location">
-                    <h3 className="warehouse-item__label">WAREHOUSE</h3>
-                    <div className="warehouse-item__more">
-                            <p className="p2 warehouse-item__copy warehouse-item__link">{data.warehouse_name}</p>
-                            <img src={chevron} alt="link icon" className="warehouse-item__icon" />
+                    <div className="warehouse-item__cell">
+                        <h3 className="warehouse-item__label">WAREHOUSE</h3>
+                        <div className="warehouse-item__more">
+                                <p className="p2 warehouse-item__copy warehouse-item__link">{data.warehouse_name}</p>
+                                <img src={chevron} alt="link icon" className="warehouse-item__icon-link" />
+                        </div>
                     </div>
-                    <h3 className="warehouse-item__label">ADDRESS</h3>
-                    <p className="p2 warehouse-item__copy">{data.address}, {data.city}, {data.country}</p>
+                    <div className="warehouse-item__cell">
+                        <h3 className="warehouse-item__label">ADDRESS</h3>
+                        <p className="p2 warehouse-item__copy">{data.address}, {data.city}, {data.country}</p>
+                    </div>
                 </div>
                 <div className="warehouse-item__contact">
-                    <h3 className="warehouse-item__label">CONTACT NAME</h3>
-                    <p className="p2 warehouse-item__copy">{data.contact_name}</p>
-                    <h3 className="warehouse-item__label">CONTACT INFORMATION</h3>
-                    <p className="p2 warehouse-item__copy">{data.contact_phone}<br/>{data.contact_email}</p>
+                    <div className="warehouse-item__cell">
+                        <h3 className="warehouse-item__label">CONTACT NAME</h3>
+                        <p className="p2 warehouse-item__copy">{data.contact_name}</p>
+                    </div>
+                    <div className="warehouse-item__cell">
+                        <h3 className="warehouse-item__label">CONTACT INFORMATION</h3>
+                        <p className="p2 warehouse-item__copy">{data.contact_phone}<br/>{data.contact_email}</p>
+                    </div>
                 </div>
             </div>
             <div className="warehouse-item__icons">
