@@ -3,61 +3,154 @@
 @use "../src/styles/partials/typography.scss" as *;
 @use "../src/styles/partials/variables.scss" as *;
 
-
 .inventory {
-    &__container {
-        border: 1px solid transparent;
+  &__container {
+    border-top: 1px solid $cloud;
+    border-bottom: 1px solid $cloud;
+  }
+
+  &__hide-mobile {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color: $grey;
+      border-bottom: none;
+      padding-right: 2rem;
+    }
+    @include desktop {
+      display: flex;
+      background-color: $grey;
+      border-bottom: none;
+    }
+  }
+
+  
+
+  &__container-column {    
+    height: 2.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    &__container-upper-mobile {
-        border: 1px solid transparent;
-        display: flex;
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+  }
 
-    &__container-middle-mobile {
-        border: 1px solid orange;
-        display: flex;
-    }
+  // &__wrapper {
+  //   padding-right: 0.5rem;
+  //   @include tablet {
+  //       width: 50%;
+  //       padding-right: 1rem;
+  //   }
+  // }
 
-    &__container-bottom-mobile {
-        border: 1px solid transparent;
-        display: flex;
-    }
-
-    &__inventory-menu {
-        text-transform: uppercase;
-        @include tablet {
-            display: none;
-        }
-
-        @include desktop {
-            display: none;
-        }
-    }
-
-    &__inventory-item {
-        color: $indigo;
-        font-weight: 800;
-    }
-
-
+  &__item-chevron {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-.in-stock-tag, .out-of-stock-tag {
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-weight: bold;
-    color: #fff;
+  &__inventory-item-name {
+    
+    color: $indigo;
+    font-weight: 800;
+  }
+
+  &__chevron {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__inventory-menu {
     text-transform: uppercase;
+    // padding-left: 2rem;
   }
-  
-  .in-stock-tag {    
-    background-color: rgba(21, 132, 99, 0.07);
-    color: #158463;
+
+  &__inventory-menu-item {
+    padding-left: 2rem;
   }
-  
-  .out-of-stock-tag {
-    background-color: rgba(201, 69, 21, 0.07);
-    color: #C94515;
+
+  &__container-inventory-items {
+// display: flex;
+// flex-direction: row;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
   }
+
+  &__inventory-item {
+    color: $indigo;
+    font-weight: 800;
+  }
+
+  &__actions {
+    // padding-left: 2rem;
+    // padding-right: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @include tablet {
+      display: flex;
+      align-items: center;
+    }
+    @include tablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__item {
+    border: 1px solid transparent;
+  }
+
+  &__mobile {
+    @include tablet {
+      display: none;
+    }
+    @include desktop {
+      display: none;
+    }
+  }
+}
+
+.in-stock-tag,
+.out-of-stock-tag {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.in-stock-tag {
+  background-color: rgba(21, 132, 99, 0.07);
+  color: #158463;
+  // margin-left: 2rem;
+}
+
+.out-of-stock-tag {
+  background-color: rgba(201, 69, 21, 0.07);
+  color: #c94515;
+  // margin-left: 2rem;
+}
