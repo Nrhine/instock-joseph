@@ -10,22 +10,32 @@ const EditWarehouseForm = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        name: '',
-        address: '',
-        city: '',
-        country: '',
-        contactName: '',
-        position: '',
-        phoneNumber: '',
-        email: ''
+        name: ' ',
+        address: ' ',
+        city: ' ',
+        country: ' ',
+        contactName: ' ',
+        position: ' ',
+        phoneNumber: ' ',
+        email: ' '
     })
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null); 
 
     useEffect(()=>{
-        axios.get (`/api/warehouse/${id}`)
+        axios.get (`http://localhost:8080/warehouse/${id}`)
         .then((response) =>{
-            setFormData(response.data);
+            //console.log(response.data);
+            setFormData({
+                name: response.data.warehouse_name,
+                address: response.data.address,
+                city: response.data.city,
+                country: response.data.country,
+                contactName: response.data.contact_name,
+                position: response.data.contact_position,
+                phoneNumber: response.data.contact_phone,
+                email: response.data.contact_email
+            });
             setLoading(false);
         })
         .catch((error) =>{
@@ -33,7 +43,7 @@ const EditWarehouseForm = () => {
             setError('Error loading warehouse');
             setLoading(false);
         })
-    },[])
+    },[id])
 
     const handleChange = (e) =>{
         const { name, value } = e.target;
@@ -43,7 +53,7 @@ const EditWarehouseForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault(); 
 
-        axios.put(`/api/warehouse/${id}`, formData)
+        axios.put(`http://localhost:8080/warehouse/${id}`, formData)
             .then(() =>{
                 navigate(`/warehouse/${id}`);
             })
@@ -82,7 +92,7 @@ const EditWarehouseForm = () => {
                             type = "text"
                             name="name"
                             value={formData.name}
-                            onchange={handleChange}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="edit-warehouse__form-details-box">
@@ -93,7 +103,7 @@ const EditWarehouseForm = () => {
                             type = "text"
                             name="address"
                             value={formData.address}
-                            onchange={handleChange}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="edit-warehouse__form-details-box">
@@ -104,7 +114,7 @@ const EditWarehouseForm = () => {
                             type = "text"
                             name="city"
                             value={formData.city}
-                            onchange={handleChange}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="edit-warehouse__form-details-box">
@@ -115,7 +125,7 @@ const EditWarehouseForm = () => {
                             type = "text"
                             name="country"
                             value={formData.country}
-                            onchange={handleChange}
+                            onChange={handleChange}
                         />
                     </div>
                 </section>
@@ -129,7 +139,7 @@ const EditWarehouseForm = () => {
                             type = "text"
                             name="contactName"
                             value={formData.contactName}
-                            onchange={handleChange}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="edit-warehouse__form-contact-box">
@@ -140,7 +150,7 @@ const EditWarehouseForm = () => {
                             type = "text"
                             name="position"
                             value={formData.position}
-                            onchange={handleChange}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="edit-warehouse__form-contact-box">
@@ -151,7 +161,7 @@ const EditWarehouseForm = () => {
                             type = "text"
                             name="phoneNumber"
                             value={formData.phoneNumber}
-                            onchange={handleChange}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="edit-warehouse__form-contact-box">
@@ -162,7 +172,7 @@ const EditWarehouseForm = () => {
                             type = "text"
                             name="email"
                             value={formData.email}
-                            onchange={handleChange}
+                            onChange={handleChange}
                         />
                     </div>
                 </section>
@@ -176,7 +186,8 @@ const EditWarehouseForm = () => {
                 />
                 <CTA
                     className="CTA--primary"
-                    type="submit"
+                    type="button" 
+                    onClick={handleSubmit}  
                     text="Save"
                 />
             </div>
