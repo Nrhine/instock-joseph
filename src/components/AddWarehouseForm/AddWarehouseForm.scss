@@ -1,0 +1,126 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+
+
+h2{
+    margin: 0rem;
+}
+.add-warehouse{
+    margin: 0rem;
+    padding: 0rem;
+    width: 100%;
+    &__header{
+        margin: 1rem;
+        padding-left: 1rem;
+        display: flex;
+        flex-direction: row;
+        background: $white;
+        &-word{
+            margin: 1rem;
+        }     
+    }
+    &__form{
+        background: $white;
+        &-details{
+            padding: 2rem; 
+            border-top: 1px solid $cloud;
+            border-bottom: 1px solid $cloud;
+            width: 100%;
+            &-box{
+                margin: 1rem 0;
+            }
+            &-input{
+                padding: 4px 16px;
+                height: 36px;
+                width: 80vw;
+                border-radius:20px;
+                border: 1px solid $cloud;
+            }
+        }
+        &-contact{
+            padding: 2rem; 
+            width: 100%;
+            &-box{
+                margin: 1rem 0;
+            }
+            &-input{
+                padding: 4px 16px;
+                height: 36px;
+                width: 80vw;
+                border-radius:20px;
+                border: 1px solid $cloud;
+            }
+        }
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;   
+            width: 100%;
+            border-top: 1px solid $cloud;
+            &-details{
+                border: none;
+                flex: 1;
+                &-input{
+                    height: 38px;
+                    width: 100%;
+                }
+            }
+            &-contact{
+                border-left: 1px solid $cloud;
+                flex: 1;
+                &-input{
+                    height: 38px;
+                    width: 100%;
+                }
+            }
+        }
+        @include desktop {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;   
+            width: 100%;
+            border-top: 1px solid $cloud;
+            &-details{
+                border: none;
+                flex: 1;
+                &-input{
+                    height: 38px;
+                    width: 100%;
+                }
+            }
+            &-contact{
+                border-left: 1px solid $cloud;
+                flex: 1;
+                &-input{
+                    height: 38px;
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+    &__button{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background: $grey;
+        @include tablet {
+            justify-content: flex-end;
+        }
+        @include desktop {
+            justify-content: flex-end;
+        }
+    }    
+}
+
+.CTA{
+    &--primary{
+        margin: 1rem;
+    }
+    &--secondary{
+        margin: 1rem;
+    }
+}
+
+
