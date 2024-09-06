@@ -13,10 +13,12 @@ function WarehouseItem({ data }) {
                         <div className="warehouse-item__location">
                             <div className="warehouse-item__cell">
                                 <h3 className="warehouse-item__label">WAREHOUSE</h3>
-                                <div className="warehouse-item__more">
-                                        <p className="p2 warehouse-item__copy warehouse-item__link semi-bold">{data.warehouse_name}</p>
-                                        <img src={chevron} alt="link icon" className="warehouse-item__icon-link" />
-                                </div>
+                                <Link to={`/warehouse/${data.id}`}>
+                                    <div className="warehouse-item__more">
+                                            <p className="p2 warehouse-item__copy warehouse-item__link semi-bold">{data.warehouse_name}</p>
+                                            <img src={chevron} alt="link icon" className="warehouse-item__icon-link" />
+                                    </div>
+                                </Link>
                             </div>
                             <div className="warehouse-item__cell">
                                 <h3 className="warehouse-item__label">ADDRESS</h3>
