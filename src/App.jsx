@@ -9,7 +9,6 @@ import AddWarehousePage from "./pages/AddWarehousePage";
 import EditWarehousePage from "./pages/EditWarehousePage";
 import Footer from './components/Footer/Footer';
 
-
 function App() {
   return (
     <Router>
