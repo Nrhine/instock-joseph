@@ -33,7 +33,7 @@ const AddWarehouseForm = () => {
         e.preventDefault();
         setLoading(true);
 
-        axios.post(`http://localhost:8080/warehouse`, formData)
+        axios.post(`http://localhost:8080/warehouses`, formData)
         .then((response) => {
             console.log('New warehouse added:', response.data);
             navigate('/warehouse'); 
@@ -163,13 +163,13 @@ const AddWarehouseForm = () => {
             </section>
             <div className="add-warehouse__button">
                 <CTA
-                    className="CTA--secondary"
+                    className="CTA--add CTA--secondary" // Add secondary class name to avoid affecting buttons outside this component
                     type="button"
                     onClick={handleCancel}
                     text="Cancel"
                 />
                 <CTA
-                    className="CTA--primary"
+                    className="CTA--add CTA--primary" // Add secondary class name to avoid affecting buttons outside this component
                     type="button" 
                     onClick={handleSubmit}  
                     text=" + Add Warehouse"
