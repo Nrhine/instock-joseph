@@ -63,7 +63,9 @@
         padding: 0 1.5rem 1.5rem;
 
         @include tablet {
-            padding: 1.906rem;
+            padding: 1.906rem 0;
+            display: flex;
+            flex-direction: row;
         }
     }
 
@@ -87,14 +89,43 @@
         font-weight: 600;
         padding-top: 1rem;
         padding-bottom: 0.25rem;
-        @include tablet {
-            display: none;
-        }
     }
 
     &__copy {
         color: $black;
         margin: 0;
+    }
+
+    &__tag {
+        height: 1.5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        background-color: rgba($color: $green, $alpha: 7%);
+        color: $green;
+        border-radius: 1.25rem;
+        display: inline-block;
+
+        @include tablet {
+            height: 1.625rem;
+        }
+    }
+
+    &__stock {
+        color: $green; // Remember to bold this later
+    }
+
+    &__left, &__right {
+        @include tablet {
+            width: 50%;
+            padding-right: 2rem;
+            padding-left: 2rem;
+        }
+    }
+
+    &__left {
+        @include tablet {
+            border-right: 1px solid $cloud;
+        }
     }
 
 }

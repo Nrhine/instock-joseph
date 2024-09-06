@@ -4,6 +4,9 @@ import back_arrow from '../../assets/Icons/arrow_back-24px.svg';
 import edit from '../../assets/Icons/edit-white-24px.svg';
 
 function InventoryDetails() {
+
+    // Consider making the stock tag its own component
+
   return (
     <>
         <section className="inventory-detail">
@@ -21,28 +24,35 @@ function InventoryDetails() {
             </div>
             <div className="inventory-detail__divider"></div>
             <div className="inventory-detail__bottom">
-                <div className="inventory-detail__row">
-                    <h4 className="inventory-detail__label">ITEM DESCRIPTION:</h4>
-                    <p className="p2 inventory-detail__copy">This 50", 4K LED TV provides a crystal-clear picture and vivid colors.</p>
-                </div>
-                <div className="inventory-detail__row">
-                    <h4 className="inventory-detail__label">CATEGORY:</h4>
-                    <p className="p2 inventory-detail__copy">Electronics</p>
-                </div>
-                <div className="inventory-detail__row--split">
-                    <div className="inventory-detail__cell">
-                        <h4 className="inventory-detail__label">STATUS:</h4>
-                        <p className="p2 inventory-detail__copy">In Stock</p>
+                <div className="inventory-detail__left">
+                    <div className="inventory-detail__row">
+                        <h4 className="inventory-detail__label">ITEM DESCRIPTION:</h4>
+                        <p className="p2 inventory-detail__copy">This 50", 4K LED TV provides a crystal-clear picture and vivid colors.</p>
                     </div>
-                    <div className="inventory-detail__cell">
-                        <h4 className="inventory-detail__label">QUANTITY:</h4>
-                        <p className="p2 inventory-detail__copy">500</p>
+                    <div className="inventory-detail__row">
+                        <h4 className="inventory-detail__label">CATEGORY:</h4>
+                        <p className="p2 inventory-detail__copy">Electronics</p>
                     </div>
                 </div>
-                <div className="inventory-detail__row">
-                    <h4 className="inventory-detail__label">WAREHOUSE:</h4>
-                    <p className="p2 inventory-detail__copy">Manhattan</p>
+                <div className="inventory-detail__right">
+                    <div className="inventory-detail__row--split">
+                        <div className="inventory-detail__cell">
+                            <h4 className="inventory-detail__label">STATUS:</h4>
+                            <div className="inventory-detail__tag">
+                                <p className="p2 inventory-detail__copy inventory-detail__stock">In Stock</p>
+                            </div>
+                        </div>
+                        <div className="inventory-detail__cell">
+                            <h4 className="inventory-detail__label">QUANTITY:</h4>
+                            <p className="p2 inventory-detail__copy">500</p>
+                        </div>
+                    </div>
+                    <div className="inventory-detail__row">
+                        <h4 className="inventory-detail__label">WAREHOUSE:</h4>
+                        <p className="p2 inventory-detail__copy">Manhattan</p>
+                    </div>
                 </div>
+                
             </div>
         </section>
     </>
