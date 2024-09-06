@@ -1,11 +1,11 @@
-@use '../styles/partials/global' as *;
-@use '../styles/partials/mixins' as *;
-@use '../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 .test {
@@ -62,8 +62,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-width: 36px;
-      min-height: 36px;
+      min-width: 2.25rem;
+      min-height: 2.25rem;
       background-color: $indigo;
       border-radius: 50%;
 
