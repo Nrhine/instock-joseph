@@ -1,12 +1,16 @@
-@use "../src/styles/partials/global.scss" as *;
 @use "../src/styles/partials/mixins.scss" as *;
-@use "../src/styles/partials/typography.scss" as *;
 @use "../src/styles/partials/variables.scss" as *;
+@use "../src/styles/partials/typography.scss" as *;
 
 .inventory {
   &__container {
     border-top: 1px solid $cloud;
     border-bottom: 1px solid $cloud;
+    padding-top: 1rem;
+
+    @include tablet {
+      padding-top: 0;
+    }
   }
 
   &__hide-mobile {
@@ -19,41 +23,106 @@
       background-color: $grey;
       border-bottom: none;
       padding-right: 2rem;
+      height: 3rem;
+      align-items: center;
     }
     @include desktop {
       display: flex;
       background-color: $grey;
       border-bottom: none;
     }
-  }
-
-  
+  }  
 
   &__container-column {    
-    height: 2.5rem;
+    // height: 2.5rem;
     padding-left: 2rem;
-    padding-right: 2rem;
+    padding-right: 2rem;    
 
     @include tablet {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;      
     }
 
     @include desktop {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    &:hover {
+      background-color: $grey;
+    }
+  }
+
+  &__outer-wrapper {    
+    display: flex;
+    flex-direction: row;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 6vw;
+    }
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
       align-items: center;
     }
   }
 
-  // &__wrapper {
-  //   padding-right: 0.5rem;
-  //   @include tablet {
-  //       width: 50%;
-  //       padding-right: 1rem;
-  //   }
-  // }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 6rem;
+    width: 100%;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      height: 3rem;
+    }
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      height: 3rem;
+    }
+  }
+
+  &__wrapper-bigger {
+    @include tablet {
+      justify-content: space-between;
+      width: 26vw;
+    }
+  }
+
+  &__wrapper-bottom-mobile {
+    height: 4rem;
+    @include tablet {
+      width: 20vw;
+      display: flex;
+      justify-content: center;
+    }
+    @include desktop {
+      width: 20vw;
+    }
+  }
+
+  &__wrapper-zero {
+    @include tablet {
+      width: 0;
+    }
+    @include desktop {
+      width: 0;
+    }
+  }
 
   &__item-chevron {
     display: flex;
@@ -61,8 +130,7 @@
     align-items: center;
 }
 
-  &__inventory-item-name {
-    
+  &__inventory-item-name {    
     color: $indigo;
     font-weight: 800;
   }
@@ -73,8 +141,7 @@
   }
 
   &__inventory-menu {
-    text-transform: uppercase;
-    // padding-left: 2rem;
+    text-transform: uppercase; 
   }
 
   &__inventory-menu-item {
@@ -82,9 +149,6 @@
   }
 
   &__container-inventory-items {
-// display: flex;
-// flex-direction: row;
-
     @include tablet {
       display: flex;
       flex-direction: row;
@@ -103,24 +167,44 @@
     font-weight: 800;
   }
 
+  &__inventory-warehouse {
+    @include tablet {
+      display: flex;
+      justify-content: end;
+      align-content: end;
+      text-align: end;
+      padding-left: 3rem;
+    }
+    @include desktop {
+      display: flex;
+      justify-content: end;
+      align-content: end;
+      text-align: end;
+      padding-left: 3rem;
+    }
+  }
+
   &__actions {
-    // padding-left: 2rem;
-    // padding-right: 2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     @include tablet {
       display: flex;
       align-items: center;
+      justify-content: flex-end;
+      width: 15vw;
     }
-    @include tablet {
+    @include desktop {
       display: flex;
       align-items: center;
     }
   }
 
   &__item {
-    border: 1px solid transparent;
+    font-weight: 700;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+
   }
 
   &__mobile {
@@ -130,6 +214,10 @@
     @include desktop {
       display: none;
     }
+  }
+
+  &__hide {
+    display:none
   }
 }
 
@@ -146,11 +234,13 @@
 .in-stock-tag {
   background-color: rgba(21, 132, 99, 0.07);
   color: #158463;
-  // margin-left: 2rem;
+  width: 3.2rem;
+  height: 1rem;
 }
 
 .out-of-stock-tag {
   background-color: rgba(201, 69, 21, 0.07);
   color: #c94515;
-  // margin-left: 2rem;
+  width: 4.8rem;
+  height: 1rem;
 }

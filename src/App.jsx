@@ -1,4 +1,5 @@
 import "./App.scss";
+import WarehouseInventoryList from "./components/WarehouseInventoryList/WarehouseInventoryList";
 //import HomePage from './pages/HomePage';
 //import WarehousesPage from './pages/WarehousesPage';
 import AddWarehousePage from "./pages/AddWarehousePage";
@@ -10,7 +11,6 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<h1>Home Page</h1>} />
         {/*
                 <Route path="/" element={<WarehousesPage />} />
     return (
