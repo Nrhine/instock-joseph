@@ -8,15 +8,17 @@ import { Link } from 'react-router-dom'
 
 function WarehouseList() {
 
-    const apiUrl = `${import.meta.env.VITE_API_URL}`
+    const apiUrl = "http://localhost:8080"
+    //`${import.meta.env.VITE_API_URL}`
 
-    const [warehousesData, setWarehousesData] = useState([])
+    const [warehousesData, setWarehousesData] = useState([]);
 
     const fetchWarehouses = async () => {
         try {
             let response = await axios.get(
                 apiUrl + "/warehouses"
             )
+            console.log("API Response: ", response.data);  
             setWarehousesData(response.data)
         } catch (error) {
             console.log(error)
@@ -59,11 +61,9 @@ function WarehouseList() {
                     </div>
                     <h4 className="warehouse-list__action-header">ACTIONS</h4>
                 </div>
-                {
-                    warehousesData.map((warehouse) => (
-                        <WarehouseItem key={warehouse.id} data={warehouse} />
-                    ))
-                }
+
+            <WarehouseItem data={sampleData} />
+           
             </div>
 
         </div>
