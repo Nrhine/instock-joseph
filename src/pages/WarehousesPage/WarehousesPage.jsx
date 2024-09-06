@@ -1,11 +1,7 @@
-import "./WarehousesPage.scss";
-import Header from "../../components/Header/Header";
+import './WarehousesPage.scss';
+import Header from '../../components/Header/Header';
 
 const WarehousesPage = () => {
-  return (
-    <>
-      <Header />
-    </>
-  );
+  return <>{/* <Header /> */}</>;
 };
 export default WarehousesPage;
