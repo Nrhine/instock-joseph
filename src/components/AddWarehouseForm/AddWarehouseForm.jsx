@@ -163,13 +163,13 @@ const AddWarehouseForm = () => {
             </section>
             <div className="add-warehouse__button">
                 <CTA
-                    className="CTA--secondary"
+                    className="CTA--add-secondary" // Add secondary class name to avoid affecting buttons outside this component
                     type="button"
                     onClick={handleCancel}
                     text="Cancel"
                 />
                 <CTA
-                    className="CTA--primary"
+                    className="CTA--add-primary" // Add secondary class name to avoid affecting buttons outside this component
                     type="button" 
                     onClick={handleSubmit}  
                     text=" + Add Warehouse"
