@@ -74,7 +74,7 @@ function WarehouseInventoryList({ data, name }) {
                   Warehouse
                 </h4>
                 <h3 className="inventory__inventory-warehouse inventory__item">
-                  {name[0].warehouse_name}
+                  {name.warehouse_name}
                 </h3>
               </div>
             </div>
