@@ -52,22 +52,24 @@ function WarehouseList() {
             </Link>
           </div>
         </div>
-      </div>
-      <div className="warehouse-list__table">
-        <div className="warehouse-list__header-row">
-          <div className="warehouse-list__table-headers">
-            <h4 className="warehouse-list__table-header">WAREHOUSE</h4>
-            <h4 className="warehouse-list__table-header">ADDRESS</h4>
-            <h4 className="warehouse-list__table-header">CONTACT NAME</h4>
-            <h4 className="warehouse-list__table-header">
-              CONTACT INFORMATION
-            </h4>
+        <div className="warehouse-list__table">
+          <div className="warehouse-list__header-row">
+            <div className="warehouse-list__table-headers">
+              <h4 className="warehouse-list__table-header">WAREHOUSE</h4>
+              <h4 className="warehouse-list__table-header">ADDRESS</h4>
+              <h4 className="warehouse-list__table-header">CONTACT NAME</h4>
+              <h4 className="warehouse-list__table-header">
+                CONTACT INFORMATION
+              </h4>
+            </div>
+            <h4 className="warehouse-list__action-header">ACTIONS</h4>
           </div>
-          <h4 className="warehouse-list__action-header">ACTIONS</h4>
+
+          {/* <WarehouseItem data={sampleData} /> */}
+          {warehousesData.map((warehouse) => (
+            <WarehouseItem key={warehouse.id} data={warehouse} />
+          ))}
         </div>
-        {warehousesData.map((warehouse) => (
-          <WarehouseItem key={warehouse.id} data={warehouse} />
-        ))}
       </div>
     </>
   );
