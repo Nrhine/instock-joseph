@@ -7,6 +7,7 @@ import WarehouseDetailsPage from './pages/WarehouseDetialsPage/WarehouseDetailsP
 import WarehouseInventoryList from "./components/WarehouseInventoryList/WarehouseInventoryList";
 import AddWarehousePage from "./pages/AddWarehousePage";
 import EditWarehousePage from "./pages/EditWarehousePage";
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/warehouse/add" element={<AddWarehousePage />} />
         <Route path="/warehouse/:id/edit" element={<EditWarehousePage />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
