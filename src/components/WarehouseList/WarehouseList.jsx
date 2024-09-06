@@ -4,6 +4,7 @@ import './WarehouseList.scss'
 import WarehouseItem from '../WarehouseItem/WarehouseItem'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function WarehouseList() {
 
@@ -43,7 +44,9 @@ function WarehouseList() {
                 <h1 className="warehouse-list__title">Warehouses</h1>
                 <div className="warehouse-list__nav">
                     <FormField className="form-field--search warehouse-list__search" placeholder="Search..."/>
-                    <CTA className="CTA--primary warehouse-list__add" text="+ Add New Warehouse"/>
+                    <Link to="/warehouse/add">
+                        <CTA className="CTA--primary warehouse-list__add" text="+ Add New Warehouse"/>
+                    </Link>
                 </div>
             </div>
             <div className="warehouse-list__table">

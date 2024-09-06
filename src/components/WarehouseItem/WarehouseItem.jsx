@@ -2,6 +2,7 @@ import './WarehouseItem.scss'
 import trash from '../../assets/Icons/delete_outline-24px.svg'
 import edit from '../../assets/Icons/edit-24px.svg'
 import chevron from '../../assets/Icons/chevron_right-24px.svg'
+import { Link } from 'react-router-dom'
 
 function WarehouseItem({ data }) {
     try {
@@ -35,7 +36,9 @@ function WarehouseItem({ data }) {
                     </div>
                     <div className="warehouse-item__icons">
                         <img src={trash} alt="delete icon" className="warehouse-item__icon" />
-                        <img src={edit} alt="edit icon" className="warehouse-item__icon" />
+                        <Link to={`/warehouse/${data.id}/edit`}>
+                            <img src={edit} alt="edit icon" className="warehouse-item__icon" />
+                        </Link>
                     </div>
                 </div>
                 <div className="warehouse-item__divider"></div>
