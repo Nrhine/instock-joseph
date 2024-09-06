@@ -37,4 +37,13 @@
             background-color:#232940;
         }
     }
+    &--active {
+        background-color: $black;
+        color: $white;
+    }
+    
+    &--inactive {
+        background-color: transparent;
+        color: $cloud;
+    }
 }

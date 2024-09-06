@@ -12,7 +12,7 @@ function WarehouseItem({ data }) {
                     <div className="warehouse-item__cell">
                         <h3 className="warehouse-item__label">WAREHOUSE</h3>
                         <div className="warehouse-item__more">
-                                <p className="p2 warehouse-item__copy warehouse-item__link">{data.warehouse_name}</p>
+                                <p className="p2 warehouse-item__copy warehouse-item__link semi-bold">{data.warehouse_name}</p>
                                 <img src={chevron} alt="link icon" className="warehouse-item__icon-link" />
                         </div>
                     </div>
