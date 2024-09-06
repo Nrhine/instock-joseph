@@ -4,6 +4,7 @@ import "./WarehouseList.scss";
 import WarehouseItem from "../WarehouseItem/WarehouseItem";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function WarehouseList() {
   const apiUrl = `${import.meta.env.VITE_API_URL}`;
@@ -43,28 +44,30 @@ function WarehouseList() {
               className="form-field--search warehouse-list__search"
               placeholder="Search..."
             />
-            <CTA
-              className="CTA--primary warehouse-list__add"
-              text="+ Add New Warehouse"
-            />
+            <Link to="/warehouse/add">
+              <CTA
+                className="CTA--primary warehouse-list__add"
+                text="+ Add New Warehouse"
+              />
+            </Link>
           </div>
         </div>
-        <div className="warehouse-list__table">
-          <div className="warehouse-list__header-row">
-            <div className="warehouse-list__table-headers">
-              <h4 className="warehouse-list__table-header">WAREHOUSE</h4>
-              <h4 className="warehouse-list__table-header">ADDRESS</h4>
-              <h4 className="warehouse-list__table-header">CONTACT NAME</h4>
-              <h4 className="warehouse-list__table-header">
-                CONTACT INFORMATION
-              </h4>
-            </div>
-            <h4 className="warehouse-list__action-header">ACTIONS</h4>
+      </div>
+      <div className="warehouse-list__table">
+        <div className="warehouse-list__header-row">
+          <div className="warehouse-list__table-headers">
+            <h4 className="warehouse-list__table-header">WAREHOUSE</h4>
+            <h4 className="warehouse-list__table-header">ADDRESS</h4>
+            <h4 className="warehouse-list__table-header">CONTACT NAME</h4>
+            <h4 className="warehouse-list__table-header">
+              CONTACT INFORMATION
+            </h4>
           </div>
-          {warehousesData.map((warehouse) => (
-            <WarehouseItem key={warehouse.id} data={warehouse} />
-          ))}
+          <h4 className="warehouse-list__action-header">ACTIONS</h4>
         </div>
+        {warehousesData.map((warehouse) => (
+          <WarehouseItem key={warehouse.id} data={warehouse} />
+        ))}
       </div>
     </>
   );

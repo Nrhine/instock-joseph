@@ -2,6 +2,7 @@ import './WarehouseItem.scss'
 import trash from '../../assets/Icons/delete_outline-24px.svg'
 import edit from '../../assets/Icons/edit-24px.svg'
 import chevron from '../../assets/Icons/chevron_right-24px.svg'
+import { Link } from 'react-router-dom'
 
 function WarehouseItem({ data }) {
     try {
@@ -12,10 +13,12 @@ function WarehouseItem({ data }) {
                         <div className="warehouse-item__location">
                             <div className="warehouse-item__cell">
                                 <h3 className="warehouse-item__label">WAREHOUSE</h3>
-                                <div className="warehouse-item__more">
-                                        <p className="p2 warehouse-item__copy warehouse-item__link semi-bold">{data.warehouse_name}</p>
-                                        <img src={chevron} alt="link icon" className="warehouse-item__icon-link" />
-                                </div>
+                                <Link to={`/warehouse/${data.id}`}>
+                                    <div className="warehouse-item__more">
+                                            <p className="p2 warehouse-item__copy warehouse-item__link semi-bold">{data.warehouse_name}</p>
+                                            <img src={chevron} alt="link icon" className="warehouse-item__icon-link" />
+                                    </div>
+                                </Link>
                             </div>
                             <div className="warehouse-item__cell">
                                 <h3 className="warehouse-item__label">ADDRESS</h3>
@@ -35,7 +38,9 @@ function WarehouseItem({ data }) {
                     </div>
                     <div className="warehouse-item__icons">
                         <img src={trash} alt="delete icon" className="warehouse-item__icon" />
-                        <img src={edit} alt="edit icon" className="warehouse-item__icon" />
+                        <Link to={`/warehouse/${data.id}/edit`}>
+                            <img src={edit} alt="edit icon" className="warehouse-item__icon" />
+                        </Link>
                     </div>
                 </div>
                 <div className="warehouse-item__divider"></div>

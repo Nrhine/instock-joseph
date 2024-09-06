@@ -17,7 +17,12 @@
 
     &__nav {
         display: flex;
+        justify-content: space-between;
         width: 100%;
+
+        a {
+            flex: 1;
+        }
 
         :hover {
             text-decoration: underline;
