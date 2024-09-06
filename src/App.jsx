@@ -1,5 +1,5 @@
 import "./App.scss";
-import WarehousesPage from './pages/WarehousesPage/WarehousesPage';
+import WarehousesPage from "./pages/WarehousesPage/WarehousesPage";
 import AddWarehousePage from "./pages/AddWarehousePage";
 import EditWarehousePage from "./pages/EditWarehousePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
