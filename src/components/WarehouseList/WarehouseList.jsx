@@ -62,7 +62,11 @@ function WarehouseList() {
                     <h4 className="warehouse-list__action-header">ACTIONS</h4>
                 </div>
 
-            <WarehouseItem data={sampleData} />
+                {
+                    warehousesData.map((warehouse) => (
+                        <WarehouseItem key={warehouse.id} data={warehouse} />
+                    ))
+                }
            
             </div>
 
