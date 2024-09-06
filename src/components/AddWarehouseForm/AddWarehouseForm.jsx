@@ -33,7 +33,7 @@ const AddWarehouseForm = () => {
         e.preventDefault();
         setLoading(true);
 
-        axios.post(`http://localhost:8080/warehouse`, formData)
+        axios.post(`http://localhost:8080/warehouses`, formData)
         .then((response) => {
             console.log('New warehouse added:', response.data);
             navigate('/warehouse'); 

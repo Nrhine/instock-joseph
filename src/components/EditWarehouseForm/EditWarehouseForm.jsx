@@ -23,7 +23,7 @@ const EditWarehouseForm = () => {
     const [error, setError] = useState(null); 
 
     useEffect(()=>{
-        axios.get (`http://localhost:8080/warehouse/${id}`)
+        axios.get (`http://localhost:8080/warehouses/${id}`)
         .then((response) =>{
             console.log(response.data);
             setFormData({
