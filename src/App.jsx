@@ -7,6 +7,7 @@ import WarehouseDetailsPage from './pages/WarehouseDetialsPage/WarehouseDetailsP
 import WarehouseInventoryList from "./components/WarehouseInventoryList/WarehouseInventoryList";
 import AddWarehousePage from "./pages/AddWarehousePage";
 import EditWarehousePage from "./pages/EditWarehousePage";
+import InventoryDetails from './components/InventoryDetails/InventoryDetails';
 
 
 function App() {
