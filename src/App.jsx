@@ -2,12 +2,12 @@ import './App.scss';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import WarehousesPage from './pages/WarehousesPage/WarehousesPage';
 import WarehouseDetailsPage from './pages/WarehouseDetialsPage/WarehouseDetailsPage';
-import WarehouseInventoryList from "./components/WarehouseInventoryList/WarehouseInventoryList";
-import AddWarehousePage from "./pages/AddWarehousePage";
-import EditWarehousePage from "./pages/EditWarehousePage";
-
+import WarehouseInventoryList from './components/WarehouseInventoryList/WarehouseInventoryList';
+import AddWarehousePage from './pages/AddWarehousePage';
+import EditWarehousePage from './pages/EditWarehousePage';
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
         <Route path="/warehouse/add" element={<AddWarehousePage />} />
         <Route path="/warehouse/:id/edit" element={<EditWarehousePage />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

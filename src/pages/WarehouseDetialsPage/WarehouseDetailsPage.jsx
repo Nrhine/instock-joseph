@@ -1,5 +1,6 @@
 import './WarehouseDetailsPage.scss';
 import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails';
+import WarehouseInventoryList from '../../components/WarehouseInventoryList/WarehouseInventoryList';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -31,6 +32,7 @@ function WarehouseDetailsPage() {
   return (
     <>
       <WarehouseDetails data={warehouse} />
+      <WarehouseInventoryList />
     </>
   );
 }
