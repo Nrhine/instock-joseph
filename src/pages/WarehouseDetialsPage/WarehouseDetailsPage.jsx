@@ -7,22 +7,27 @@ import { useState, useEffect } from 'react';
 
 function WarehouseDetailsPage() {
   const [warehouse, setWarehouse] = useState();
+  const [inventory, setInventory] = useState();
 
   const { id } = useParams();
   const apiUrl = import.meta.env.VITE_API_URL;
 
-  const getWarehouseDetails = async () => {
+  const getWarehouseData = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/warehouses/${id}`);
-      console.log(response.data); // Check if data is returned correctly
-      setWarehouse(response.data);
+      const [warehouseResponse, inventoryResponse] = await Promise.all([
+        axios.get(`${apiUrl}/warehouses/${id}`),
+        axios.get(`${apiUrl}/warehouses/${id}/inventories`),
+      ]);
+
+      setWarehouse(warehouseResponse.data);
+      setInventory(inventoryResponse.data);
     } catch (error) {
-      console.log(`Error making axios call for warehouse id: ${id}`, error);
+      console.log(`Error fetching warehouse and inventory data: ${error}`);
     }
   };
 
   useEffect(() => {
-    getWarehouseDetails();
+    getWarehouseData();
   }, [id]);
 
   if (!warehouse) {
@@ -32,7 +37,7 @@ function WarehouseDetailsPage() {
   return (
     <>
       <WarehouseDetails data={warehouse} />
-      <WarehouseInventoryList />
+      <WarehouseInventoryList data={inventory} name={warehouse} />
     </>
   );
 }

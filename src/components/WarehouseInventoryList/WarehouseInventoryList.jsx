@@ -1,32 +1,10 @@
 import './WarehouseInventoryList.scss';
-import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 import recycleBin from '../../assets/Icons/delete_outline-24px.svg';
 import pencil from '../../assets/Icons/edit-24px.svg';
 import chevron from '../../assets/Icons/chevron_right-24px.svg';
 
-function WarehouseInventoryList(id) {
-  const [inventoryData, setInventoryData] = useState([]);
-  const { warehouseId } = useParams(id);
-
-  useEffect(() => {
-    const fetchInventoryData = async () => {
-      try {
-        let url = `${API_URL}/api/inventories`;
-        if (warehouseId) {
-          url += `?warehouseId=${warehouseId}`;
-        }
-        const response = await axios.get(url);
-        setInventoryData(response.data);
-      } catch (error) {
-        console.error('Error fetching inventory data:', error);
-      }
-    };
-
-    fetchInventoryData();
-  }, [warehouseId]);
-
+function WarehouseInventoryList({ data, name }) {
   return (
     <>
       <div className="inventory__container">
@@ -41,7 +19,7 @@ function WarehouseInventoryList(id) {
           <h4 className="inventory__inventory-menu">Actions</h4>
         </div>
 
-        {inventoryData.map((item) => (
+        {data.map((item) => (
           <div key={item.id} className="inventory__container-column">
             <div className="inventory__outer-wrapper">
               <div className="inventory__wrapper inventory__wrapper-bigger">
@@ -96,7 +74,7 @@ function WarehouseInventoryList(id) {
                   Warehouse
                 </h4>
                 <h3 className="inventory__inventory-warehouse inventory__item">
-                  {item.warehouse_name}
+                  {name[0].warehouse_name}
                 </h3>
               </div>
             </div>
