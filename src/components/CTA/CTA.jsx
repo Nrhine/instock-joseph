@@ -1,11 +1,13 @@
-import './CTA.scss'
+import "./CTA.scss";
 
-function CTA({ text, className }) {
+function CTA({ text, className, onClick }) {
   return (
     <>
-        <button className={"CTA " + className}>{text}</button>
+      <button className={"CTA " + className} onClick={onClick}>
+        {text}
+      </button>
     </>
-  )
+  );
 }
 
-export default CTA
+export default CTA;
