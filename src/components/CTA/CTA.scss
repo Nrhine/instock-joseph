@@ -40,8 +40,9 @@
     }
     &--active {
         background-color: $black;
-        color: white;
+        color: $white;
     }
+    
     &--inactive {
         background-color: transparent;
         color: $cloud;

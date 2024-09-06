@@ -2,8 +2,29 @@ import CTA from '../CTA/CTA'
 import FormField from '../FormField/FormField'
 import './WarehouseList.scss'
 import WarehouseItem from '../WarehouseItem/WarehouseItem'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 function WarehouseList() {
+
+    const apiUrl = `${import.meta.env.VITE_API_URL}`
+
+    const [warehousesData, setWarehousesData] = useState([])
+
+    const fetchWarehouses = async () => {
+        try {
+            let response = await axios.get(
+                apiUrl + "/warehouses"
+            )
+            setWarehousesData(response.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        fetchWarehouses()
+    }, [])
 
     const sampleData = {
         "warehouse_name": "Manhattan",
@@ -35,8 +56,11 @@ function WarehouseList() {
                     </div>
                     <h4 className="warehouse-list__action-header">ACTIONS</h4>
                 </div>
-                <WarehouseItem data={sampleData} />
-                <WarehouseItem data={sampleData} />
+                {
+                    warehousesData.map((warehouse) => (
+                        <WarehouseItem key={warehouse.id} data={warehouse} />
+                    ))
+                }
             </div>
 
         </div>
