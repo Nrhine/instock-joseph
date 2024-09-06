@@ -1,20 +1,14 @@
 import "./Header.scss";
+import CTA from "../CTA/CTA";
 import logo from "../../assets/Logo/Instock-Logo.svg";
-import Button from "../Button/Button";
 
 const Header = () => {
   return (
     <header className="header">
       <img src={logo} alt="instock logo" className="header__logo" />
       <nav className="header__nav">
-        <Button
-          text="Warehouses"
-          className="button__header button__header--active"
-        />
-        <Button
-          text="Inventory"
-          className="button__header button__header--inactive"
-        />
+        <CTA text="Warehouses" className="CTA--active" />
+        <CTA text="Inventory" className="CTA--inactive" />
       </nav>
     </header>
   );
