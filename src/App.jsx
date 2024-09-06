@@ -9,6 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<WarehousesPage />} />
+        <Route path="/warehouse" element={<WarehousesPage />} />
         <Route path="/inventory" element={<h1>InventoryListPage</h1>} />
         <Route path="/warehouse/add" element={<AddWarehousePage />} />
         <Route path="/warehouse/:id/edit" element={<EditWarehousePage />} />
