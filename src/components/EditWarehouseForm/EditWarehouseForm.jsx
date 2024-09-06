@@ -23,7 +23,7 @@ const EditWarehouseForm = () => {
     const [error, setError] = useState(null); 
 
     useEffect(()=>{
-        axios.get (`http://localhost:8080/warehouse/${id}`)
+        axios.get (`http://localhost:8080/warehouses/${id}`)
         .then((response) =>{
             //console.log(response.data);
             setFormData({
@@ -179,13 +179,13 @@ const EditWarehouseForm = () => {
             </section>
             <div className="edit-warehouse__button">
                 <CTA
-                    className="CTA--secondary CTA--edit-primary" // Add secondary class name to avoid affecting buttons outside this component
+                    className="CTA--secondary CTA--edit" // Add secondary class name to avoid affecting buttons outside this component
                     type="button"
                     onClick={handleCancel}
                     text="Cancel"
                 />
                 <CTA
-                    className="CTA--primary CTA--edit-primary" // Add secondary class name to avoid affecting buttons outside this component
+                    className="CTA--primary CTA--edit" // Add secondary class name to avoid affecting buttons outside this component
                     type="button" 
                     onClick={handleSubmit}  
                     text="Save"

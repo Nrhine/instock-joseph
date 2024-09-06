@@ -7,7 +7,6 @@ const WarehousesPage = () => {
   return (
     <>
       <WarehouseList />
-      <Footer />
     </>
   );
 };
