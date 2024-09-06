@@ -15,6 +15,7 @@ function App() {
     <Router>
       <Header />
       <Routes>
+      <Route path="/" element={<InventoryDetails />} />
         <Route path="/" element={<WarehousesPage />} />
         <Route path="/warehouse/:id" element={<WarehouseDetailsPage />} />
         <Route path="/warehouse/add" element={<AddWarehousePage />} />

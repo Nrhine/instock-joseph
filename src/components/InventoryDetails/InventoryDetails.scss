@@ -100,18 +100,29 @@
         height: 1.5rem;
         padding-left: 0.5rem;
         padding-right: 0.5rem;
-        background-color: rgba($color: $green, $alpha: 7%);
-        color: $green;
         border-radius: 1.25rem;
         display: inline-block;
 
         @include tablet {
             height: 1.625rem;
         }
+
+        &--in-stock {
+            background-color: rgba($color: $green, $alpha: 7%);
+        }
+        &--out-of-stock {
+            background-color: rgba($color: $red, $alpha: 7%);
+        }
     }
 
     &__stock {
-        color: $green; // Remember to bold this later
+        &--in {
+            color: $green; // Remember to bold this later
+        }
+        &--out {
+            color: $red;
+        }
+        
     }
 
     &__left, &__right {

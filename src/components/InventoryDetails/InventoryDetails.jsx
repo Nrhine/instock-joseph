@@ -5,7 +5,7 @@ import edit from '../../assets/Icons/edit-white-24px.svg';
 
 function InventoryDetails() {
 
-    // Consider making the stock tag its own component
+    let status = 'In Stock';
 
   return (
     <>
@@ -38,8 +38,8 @@ function InventoryDetails() {
                     <div className="inventory-detail__row--split">
                         <div className="inventory-detail__cell">
                             <h4 className="inventory-detail__label">STATUS:</h4>
-                            <div className="inventory-detail__tag">
-                                <p className="p2 inventory-detail__copy inventory-detail__stock">In Stock</p>
+                            <div className={`inventory-detail__tag ${status === 'In Stock' ? 'inventory-detail__tag--in-stock' : 'inventory-detail__tag--out-of-stock'}`}>
+                                <p className={`p2 inventory-detail__copy ${status === 'In Stock' ? 'inventory-detail__stock--in' : 'inventory-detail__stock--out'}`}>In Stock</p>
                             </div>
                         </div>
                         <div className="inventory-detail__cell">
