@@ -4,7 +4,6 @@
 
 .inventory {
   &__container {
-    border-bottom: 1px solid $cloud;
     background-color: $white;
     position: relative;
     top: -2.5rem;
@@ -36,14 +35,6 @@
       padding-right: 2rem;
       height: 2rem;
       align-items: center;
-    }
-  }
-
-  &__outer {
-    border: 1px solid transparent;
-
-    @include tablet {
-      border: 1px solid transparent;      
     }
   }
 
@@ -178,6 +169,12 @@
     }
   }
 
+  &__inventory-quantity {
+    @include tablet {
+      padding-left: 1rem;
+    }
+  }
+
   &__inventory-item {
     color: $indigo;
     font-weight: 800;
@@ -193,12 +190,8 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
+      gap: 0.5rem;
       width: auto;
-      padding-bottom: 0;
-    }
-    @include desktop {
-      display: flex;
-      align-items: center;
       padding-bottom: 0;
     }
   }
