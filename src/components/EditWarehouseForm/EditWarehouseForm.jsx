@@ -10,31 +10,30 @@ const EditWarehouseForm = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        name: " ",
-        address: " ",
-        city: " ",
-        country: " ",
-        contactName: " ",
-        position: " ",
-        phoneNumber: " ",
-        email: " ",
+        warehouse_name: '',
+        address: '',
+        city: '',
+        country: '',
+        contact_name: '',
+        contact_position: '',
+        contact_phone: '',
+        contact_email: '',
     })
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null); 
 
     useEffect(()=>{
-        axios.get (`http://localhost:8080/warehouses/${id}`)
+        axios.get (`http://localhost:8080/api/warehouses/${id}`)
         .then((response) =>{
             console.log(response.data);
             setFormData({
-                name: response.data.warehouse_name,
+                warehouse_name: response.data.warehouse_name,
                 address: response.data.address,
                 city: response.data.city,
                 country: response.data.country,
-                contactName: response.data.contact_name,
-                position: response.data.contact_position,
-                phoneNumber: response.data.contact_phone,
-                email: response.data.contact_email
+                contact_name: response.data.contact_name,
+                contact_position: response.data.contact_position,
+                contact_phone: response.data.contact_phone,
+                contact_email: response.data.contact_email,
             });
             setLoading(false);
         })
@@ -52,8 +51,10 @@ const EditWarehouseForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
+    
+        console.log(formData);
 
-        axios.put(`http://localhost:8080/warehouses/${id}`, formData)
+        axios.put(`http://localhost:8080/api/warehouses/${id}`, formData)
             .then(() =>{
                 navigate(`/warehouses/${id}`);
             })
@@ -94,8 +95,8 @@ const EditWarehouseForm = () => {
                         <FormField
                             className="edit-warehouse__form-details-input"
                             type = "text"
-                            name="name"
-                            value={formData.name}
+                            name="warehouse_name"
+                            value={formData.warehouse_name}
                             onChange={handleChange}
                         />
                     </div>
@@ -141,8 +142,8 @@ const EditWarehouseForm = () => {
                         <FormField
                             className="edit-warehouse__form-contact-input"
                             type = "text"
-                            name="contactName"
-                            value={formData.contactName}
+                            name="contact_name"
+                            value={formData.contact_name}
                             onChange={handleChange}
                         />
                     </div>
@@ -152,8 +153,8 @@ const EditWarehouseForm = () => {
                         <FormField
                             className="edit-warehouse__form-contact-input"
                             type = "text"
-                            name="position"
-                            value={formData.position}
+                            name="contact_position"
+                            value={formData.contact_position}
                             onChange={handleChange}
                         />
                     </div>
@@ -163,8 +164,8 @@ const EditWarehouseForm = () => {
                         <FormField
                             className="edit-warehouse__form-contact-input"
                             type = "text"
-                            name="phoneNumber"
-                            value={formData.phoneNumber}
+                            name="contact_phone"
+                            value={formData.contact_phone}
                             onChange={handleChange}
                         />
                     </div>
@@ -174,8 +175,8 @@ const EditWarehouseForm = () => {
                         <FormField
                             className="edit-warehouse__form-contact-input"
                             type = "text"
-                            name="email"
-                            value={formData.email}
+                            name="contact_email"
+                            value={formData.contact_email}
                             onChange={handleChange}
                         />
                     </div>
