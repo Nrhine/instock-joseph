@@ -2,52 +2,56 @@ import './AddNewInventoryItem.scss';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { v4 as uuid } from 'uuid';
 import backlogo from '../../assets/Icons/arrow_back-24px.svg';
 import FormField from '../FormField/FormField';
 import CTA from '../CTA/CTA';
 
 function AddNewInventoryItem() {
   const navigate = useNavigate();
-  const [status, setStatus] = useState('inStock'); // Default status
-  const handleStatusChange = (event) => {
-    setStatus(event.target.value);
-  };
-  const [formData, setFormData] = useState({
-    id: `${uuid()}`,
-    warehouse_id: ' ',
-    item_name: ' ',
-    description: ' ',
-    category: ' ',
-    status: `${status}`,
-    quantity: ' ',
-  });
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const [formData, setFormData] = useState({
+    warehouse_id: '',
+    item_name: '',
+    description: '',
+    category: '',
+    status: '',
+    quantity: '',
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
 
+    const requestData = {
+      ...formData,
+      quantity: parseInt(formData.quantity, 10), // Convert quantity to a number
+    };
+
+    console.log('Form data being sent:', requestData);
+
     axios
-      .post(`http://localhost:8080/warehouses`, formData)
+      .post(`${apiUrl}/api/inventories`, requestData)
       .then((response) => {
-        console.log('New warehouse added:', response.data);
+        console.log('New item added:', response.data);
         navigate('/inventory');
         setLoading(false);
       })
       .catch((error) => {
         console.error(error);
-        setError('Error adding warehouse');
+        setError('Error adding item');
         setLoading(false);
       });
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-    });
   };
 
   const handleCancel = () => {
@@ -98,7 +102,13 @@ function AddNewInventoryItem() {
                 Category{' '}
               </label>
               <br />
-              <select id="category" className="form__item-details-dropdown">
+              <select
+                id="category"
+                name="category"
+                className="form__item-details-dropdown"
+                value={formData.category}
+                onChange={handleChange}
+              >
                 <option value="">Please select</option>
                 <option value="Accessories">Accessories</option>
                 <option value="Apparel">Apparel</option>
@@ -113,26 +123,28 @@ function AddNewInventoryItem() {
             <div className="form__item-details-box">
               <label className="form__item-label"> Status </label>
               <div className="form__item-details-radio-container">
-                <div>
-                  <label className="form__item-details-radio">
-                    <input
-                      type="radio"
-                      value="In Stock"
-                      checked={status === 'In Stock'}
-                      onChange={handleStatusChange}
-                    />
-                    In Stock
-                  </label>
+                <div className="form__item-details-radio-box">
+                  <input
+                    className="form__item-details-radio-btn"
+                    type="radio"
+                    name="status" // Add name attribute for formData to recognize it
+                    value="In Stock"
+                    checked={formData.status === 'In Stock'}
+                    onChange={handleChange} // Use handleChange to update formData directly
+                  />
+                  <label className="form__item-details-radio">In Stock</label>
                 </div>
 
-                <div>
+                <div className="form__item-details-radio-box">
+                  <input
+                    className="form__item-details-radio-btn"
+                    type="radio"
+                    name="status" // Add name attribute for formData to recognize it
+                    value="Out of Stock"
+                    checked={formData.status === 'Out of Stock'}
+                    onChange={handleChange} // Use handleChange to update formData directly
+                  />
                   <label className="form__item-details-radio">
-                    <input
-                      type="radio"
-                      value="Out of Stock"
-                      checked={status === 'Out of Stock'}
-                      onChange={handleStatusChange}
-                    />
                     Out of Stock
                   </label>
                 </div>
@@ -153,7 +165,13 @@ function AddNewInventoryItem() {
             <div className="form__item-details-box">
               <label className="form__item-label"> Warehouse </label>
               <br />
-              <select id="category" className="form__item-details-dropdown">
+              <select
+                id="warehouse_id"
+                name="warehouse_id"
+                className="form__item-details-dropdown"
+                value={formData.warehouse_id}
+                onChange={handleChange}
+              >
                 <option value="">Please select</option>
                 <option value="1">Manhattan</option>
                 <option value="2">Washington</option>
