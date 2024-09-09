@@ -5,7 +5,6 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import WarehousesPage from './pages/WarehousesPage/WarehousesPage';
 import WarehouseDetailsPage from './pages/WarehouseDetialsPage/WarehouseDetailsPage';
-
 import AddWarehousePage from "./pages/AddWarehousePage";
 import EditWarehousePage from "./pages/EditWarehousePage";
 import InventoryDetailsPage from './pages/InventoryDetailsPage';
