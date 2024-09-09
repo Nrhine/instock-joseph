@@ -1,11 +1,15 @@
 import "./CTA.scss";
 
-function CTA({ text, className, onClick }) {
+function CTA({ type ="button", onClick, text, className }) {
   return (
     <>
-      <button className={"CTA " + className} onClick={onClick}>
-        {text}
-      </button>
+        <button
+          type={type}           
+          onClick={onClick}  
+          className={"CTA " + className}
+        >
+          {text}
+        </button>
     </>
   );
 }
