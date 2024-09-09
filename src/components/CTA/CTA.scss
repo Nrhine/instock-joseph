@@ -1,4 +1,3 @@
-@use "../../styles/partials/global" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
@@ -40,8 +39,9 @@
     }
     &--active {
         background-color: $black;
-        color: white;
+        color: $white;
     }
+    
     &--inactive {
         background-color: transparent;
         color: $cloud;

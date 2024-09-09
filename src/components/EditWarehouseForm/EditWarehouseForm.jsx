@@ -10,22 +10,22 @@ const EditWarehouseForm = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        name: ' ',
-        address: ' ',
-        city: ' ',
-        country: ' ',
-        contactName: ' ',
-        position: ' ',
-        phoneNumber: ' ',
-        email: ' '
+        name: " ",
+        address: " ",
+        city: " ",
+        country: " ",
+        contactName: " ",
+        position: " ",
+        phoneNumber: " ",
+        email: " ",
     })
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null); 
 
     useEffect(()=>{
-        axios.get (`http://localhost:8080/warehouse/${id}`)
+        axios.get (`http://localhost:8080/warehouses/${id}`)
         .then((response) =>{
-            //console.log(response.data);
+            console.log(response.data);
             setFormData({
                 name: response.data.warehouse_name,
                 address: response.data.address,
@@ -69,6 +69,10 @@ const EditWarehouseForm = () => {
     const handleBackClick = () => {
         navigate(`/warehouse/${id}`);
     };
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     return(
         <>
@@ -179,13 +183,13 @@ const EditWarehouseForm = () => {
             </section>
             <div className="edit-warehouse__button">
                 <CTA
-                    className="CTA--secondary"
+                    className="CTA--secondary CTA--edit" // Add secondary class name to avoid affecting buttons outside this component
                     type="button"
                     onClick={handleCancel}
                     text="Cancel"
                 />
                 <CTA
-                    className="CTA--primary"
+                    className="CTA--primary CTA--edit" // Add secondary class name to avoid affecting buttons outside this component
                     type="button" 
                     onClick={handleSubmit}  
                     text="Save"
