@@ -9,7 +9,7 @@ function WarehouseDetails({ data }) {
     return <p>Loading...</p>; // Render a loading message or fallback UI
   }
 
-  const warehouse = data[0];
+  const warehouse = data;
 
   return (
     <>
