@@ -19,13 +19,13 @@ const Header = () => {
     <header className="header">
       <img src={logo} alt="instock logo" className="header__logo" />
       <nav className="header__nav">
-        <Link to="warehouses" onClick={() => handleCTAClick("warehouse")}>
+        <Link to="/warehouse" onClick={() => handleCTAClick("warehouse")}>
           <CTA
             text="Warehouses"
             className={`${switchCTAClass("warehouse")} header__button`}
           />
         </Link>
-        <Link to="inventories" onClick={() => handleCTAClick("inventory")}>
+        <Link to="/inventory" onClick={() => handleCTAClick("inventory")}>
           <CTA
             text="Inventories"
             className={`${switchCTAClass("inventory")} header__button`}
