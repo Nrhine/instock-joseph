@@ -11,22 +11,36 @@ function WarehouseList() {
     const apiUrl = `${import.meta.env.VITE_API_URL}`
 
     const [warehousesData, setWarehousesData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null); 
 
     const fetchWarehouses = async () => {
         try {
             let response = await axios.get(
                 apiUrl + "/warehouses"
             )
-            setWarehousesData(response.data)
+            if (Array.isArray(response.data)) {
+                setWarehousesData(response.data); 
+            } else {
+                setError("Invalid data format");
+            }
         } catch (error) {
-            console.log(error)
+            console.error(error);
+        } finally {
+            setLoading(false);  
         }
     }
 
     useEffect(() => {
         fetchWarehouses()
     }, [])
+    if (loading) {
+        return <div>Loading...</div>;  
+    }
 
+    if (error) {
+        return <div>Error: {error}</div>; 
+    }/*
     const sampleData = {
         "warehouse_name": "Manhattan",
         "address": "503 Broadway",
@@ -36,7 +50,7 @@ function WarehouseList() {
         "contact_phone": "+1 (616) 123-1234",
         "contact_email": "paujla@instock.com"
     }
-
+*/
   return (
     <>
         <div className='warehouse-list'>

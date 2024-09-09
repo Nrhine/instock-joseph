@@ -14,11 +14,11 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<WarehousesPage />} />
-        <Route path="/warehouse" element={<WarehousesPage />} />
-        <Route path="/inventory" element={<h1>InventoryListPage</h1>} />
-        <Route path="/warehouse/:id" element={<WarehouseDetailsPage />} />
-        <Route path="/warehouse/add" element={<AddWarehousePage />} />
-        <Route path="/warehouse/:id/edit" element={<EditWarehousePage />} />
+        <Route path="/warehouses" element={<WarehousesPage />} />
+        <Route path="/inventory" element={<h1>InventoryListPage</h1>} /> 
+        <Route path="/warehouses/:id" element={<WarehouseDetailsPage />} />
+        <Route path="/warehouses/add" element={<AddWarehousePage />} />
+        <Route path="/warehouses/:id/edit" element={<EditWarehousePage />} />
       </Routes>
       <Footer />
     </Router>
