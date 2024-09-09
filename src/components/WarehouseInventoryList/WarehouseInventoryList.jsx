@@ -1,5 +1,6 @@
 import './WarehouseInventoryList.scss';
 import { Link } from 'react-router-dom';
+import { useState } from "react";
 import recycleBin from '../../assets/Icons/delete_outline-24px.svg';
 import pencil from '../../assets/Icons/edit-24px.svg';
 import chevron from '../../assets/Icons/chevron_right-24px.svg';
@@ -60,7 +61,7 @@ function WarehouseInventoryList({ data, name }) {
                 <div className="inventory__wrapper">
                   <div className="inventory__wrap">
                     <h4 className="inventory__inventory-menu inventory__mobile">Warehouse</h4>
-                    <h3 className="inventory__inventory-warehouse inventory__item">{name[0].warehouse_name}</h3>
+                    <h3 className="inventory__inventory-warehouse inventory__item">{name.warehouse_name}</h3>
                   </div>
                 </div>
               </div>
@@ -79,7 +80,6 @@ function WarehouseInventoryList({ data, name }) {
         </div>
       </div>
       <div className="inventory__separator"></div>
-
     </>
   );
 }

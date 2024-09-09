@@ -13,8 +13,23 @@
 }
 
 .warehouse {
-  border-radius: 0.25rem 0.25rem 0 0;
   background-color: $white;
+  position: relative;
+  top: -2.5rem;
+  width: 90%;
+  left: 5%;
+  box-shadow: 2px 2px rgba($color: $cloud, $alpha: 0.1),
+    1px 1px rgba($color: $cloud, $alpha: 0.2),
+    -2px 2px rgba($color: $cloud, $alpha: 0.1),
+    -1px 1px rgba($color: $cloud, $alpha: 0.2);
+  border-radius: 5px 5px 0 0;
+
+  @include tablet {
+    top: -4.5rem;
+  }
+  @include desktop {
+    top: -5.5rem;
+  }
 
   &__container {
     &-top {
@@ -29,7 +44,7 @@
     }
     &-bottom {
       border-top: 1px solid $cloud;
-      border-bottom: 1px solid $cloud;
+      // border-bottom: 1px solid $cloud;
 
       @include tablet {
         display: flex;
