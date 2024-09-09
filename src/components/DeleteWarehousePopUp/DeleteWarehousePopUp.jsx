@@ -2,7 +2,7 @@ import "./DeleteWarehousePopUp.scss";
 import close from "../../assets/Icons/close-24px.svg";
 import CTA from "../CTA/CTA";
 
-const DeleteWarehousePopUp = ({ warehouseName, onClose }) => {
+const DeleteWarehousePopUp = ({ warehouseName, onClose, onDelete }) => {
   return (
     <>
       <div className="delete-warehouse-popup__overlay" onClick={onClose}></div>
@@ -25,7 +25,7 @@ const DeleteWarehousePopUp = ({ warehouseName, onClose }) => {
         </div>
         <div className="delete-warehouse-popup__buttons-container">
           <CTA className="CTA--secondary" text="Cancel" onClick={onClose} />
-          <CTA className="CTA--delete" text="Delete" />
+          <CTA className="CTA--delete" text="Delete" onClick={onDelete} />
         </div>
       </div>
     </>
