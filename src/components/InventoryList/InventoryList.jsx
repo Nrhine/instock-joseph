@@ -11,6 +11,7 @@ import DeleteInventoryPopUp from "../DeleteInventoryPopUp/DeleteInventoryPopUp";
 function InventoryList({ items }) {
   const [popUp, setPopup] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
+  const [inventoryItems, setInventoryItems] = useState(items);
 
   const handleDeleteClick = (item) => {
     setItemToDelete(item);
@@ -20,6 +21,12 @@ function InventoryList({ items }) {
   const handleClosePopup = () => {
     setPopup(false);
     setItemToDelete(null);
+  };
+
+  const handleDeleteItem = (id) => {
+    setInventoryItems((prevItems) =>
+      prevItems.filter((item) => item.id !== id)
+    );
   };
 
   return (
@@ -63,7 +70,7 @@ function InventoryList({ items }) {
         </div>
       </section>
 
-      {items.map((item) => (
+      {inventoryItems.map((item) => (
         <section key={item.id} className="inventory__item">
           <div className="inventory__item-info-left">
             <p className="inventory__item-label">inventory item</p>
@@ -107,7 +114,11 @@ function InventoryList({ items }) {
         </section>
       ))}
       {popUp && (
-        <DeleteInventoryPopUp item={itemToDelete} onClose={handleClosePopup} />
+        <DeleteInventoryPopUp
+          item={itemToDelete}
+          onClose={handleClosePopup}
+          onDelete={handleDeleteItem}
+        />
       )}
     </section>
   );

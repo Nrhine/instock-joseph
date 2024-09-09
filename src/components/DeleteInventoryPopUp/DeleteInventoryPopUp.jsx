@@ -1,8 +1,23 @@
 import "./DeleteInventoryPopUp.scss";
 import close from "../../assets/Icons/close-24px.svg";
 import CTA from "../CTA/CTA";
+import axios from "axios";
 
-const DeleteInventoryPopUp = ({ item, onClose }) => {
+const DeleteInventoryPopUp = ({ item, onClose, onDelete }) => {
+  const handleDelete = async () => {
+    try {
+      const apiUrl = `${import.meta.env.VITE_API_URL}/api/inventories/${
+        item.id
+      }`;
+      await axios.delete(apiUrl);
+
+      onDelete(item.id);
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+    onClose();
+  };
+
   return (
     <>
       <div className="delete-warehouse-popup__overlay" onClick={onClose}></div>
@@ -23,7 +38,7 @@ const DeleteInventoryPopUp = ({ item, onClose }) => {
         </p>
         <div className="delete-inventory-popup__buttons-container">
           <CTA className="CTA--secondary" text="Cancel" onClick={onClose} />
-          <CTA className="CTA--delete" text="Delete" />
+          <CTA className="CTA--delete" text="Delete" onClick={handleDelete} />
         </div>
       </div>
     </>
