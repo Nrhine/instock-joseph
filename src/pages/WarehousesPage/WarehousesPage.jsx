@@ -1,6 +1,5 @@
-import './WarehousesPage.scss';
-import WarehouseList from '../../components/WarehouseList/WarehouseList';
-import DeleteWarehousePopUp from '../../components/DeleteWarehousePopup/DeleteWarehousePopup';
+import "./WarehousesPage.scss";
+import WarehouseList from "../../components/WarehouseList/WarehouseList";
 
 const WarehousesPage = () => {
   return (

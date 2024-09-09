@@ -9,14 +9,14 @@ import CTA from '../CTA/CTA';
 const AddWarehouseForm = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        name: ' ',
-        address: ' ',
-        city: ' ',
-        country: ' ',
-        contactName: ' ',
-        position: ' ',
-        phoneNumber: ' ',
-        email: ' '
+        warehouse_name: '',  
+        address: '',
+        city: '',
+        country: '',
+        contact_name: '',  
+        contact_position: '',  
+        contact_phone: '', 
+        contact_email: '' 
     })
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -32,10 +32,9 @@ const AddWarehouseForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
-
-        axios.post(`http://localhost:8080/warehouses`, formData)
+        
+        axios.post(`http://localhost:8080/api/warehouses`, formData)
         .then((response) => {
-            console.log('New warehouse added:', response.data);
             navigate('/warehouse'); 
             setLoading(false);
         })
@@ -74,8 +73,8 @@ const AddWarehouseForm = () => {
                         <FormField
                             className="add-warehouse__form-details-input"
                             type = "text"
-                            name="name"
-                            value={formData.name}
+                            name="warehouse_name"
+                            value={formData.warehouse_name}
                             onChange={handleChange}
                         />
                     </div>
@@ -121,8 +120,8 @@ const AddWarehouseForm = () => {
                         <FormField
                             className="add-warehouse__form-contact-input"
                             type = "text"
-                            name="contactName"
-                            value={formData.contactName}
+                            name="contact_name"
+                            value={formData.contact_name}
                             onChange={handleChange}
                         />
                     </div>
@@ -132,8 +131,8 @@ const AddWarehouseForm = () => {
                         <FormField
                             className="add-warehouse__form-contact-input"
                             type = "text"
-                            name="position"
-                            value={formData.position}
+                            name="contact_position"
+                            value={formData.contact_position}
                             onChange={handleChange}
                         />
                     </div>
@@ -143,8 +142,8 @@ const AddWarehouseForm = () => {
                         <FormField
                             className="add-warehouse__form-contact-input"
                             type = "text"
-                            name="phoneNumber"
-                            value={formData.phoneNumber}
+                            name="contact_phone"
+                            value={formData.contact_phone}
                             onChange={handleChange}
                         />
                     </div>
@@ -154,8 +153,8 @@ const AddWarehouseForm = () => {
                         <FormField
                             className="add-warehouse__form-contact-input"
                             type = "text"
-                            name="email"
-                            value={formData.email}
+                            name="contact_email"
+                            value={formData.contact_email}
                             onChange={handleChange}
                         />
                     </div>
@@ -170,7 +169,7 @@ const AddWarehouseForm = () => {
                 />
                 <CTA
                     className="CTA--add CTA--primary" // Add secondary class name to avoid affecting buttons outside this component
-                    type="button" 
+                    type="submit" 
                     onClick={handleSubmit}  
                     text=" + Add Warehouse"
                 />
