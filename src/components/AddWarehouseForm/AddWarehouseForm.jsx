@@ -32,10 +32,10 @@ const AddWarehouseForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
-
+        
         axios.post(`http://localhost:8080/api/warehouses`, formData)
         .then((response) => {
-            navigate('/warehouses'); 
+            navigate('/warehouse'); 
             setLoading(false);
         })
         .catch((error) => {
@@ -46,11 +46,11 @@ const AddWarehouseForm = () => {
     }
 
     const handleCancel = () => {
-        navigate('/warehouses');
+        navigate('/warehouse');
     };
 
     const handleBackClick = () => {
-        navigate('/warehouses');
+        navigate('/warehouse');
     };
 
     return(

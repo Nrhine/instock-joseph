@@ -56,7 +56,7 @@ const EditWarehouseForm = () => {
 
         axios.put(`http://localhost:8080/api/warehouses/${id}`, formData)
             .then(() =>{
-                navigate(`/warehouses/${id}`);
+                navigate(`/warehouse/${id}`);
             })
             .catch((error) =>{
                 console.error(error);
@@ -64,11 +64,11 @@ const EditWarehouseForm = () => {
     }
 
     const handleCancel=() =>{
-        navigate(`/warehouses/${id}`);
+        navigate(`/warehouse/${id}`);
     }
 
     const handleBackClick = () => {
-        navigate(`/warehouses/${id}`);
+        navigate(`/warehouse/${id}`);
     };
 
     if (loading) {
