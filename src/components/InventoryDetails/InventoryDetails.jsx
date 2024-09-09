@@ -16,8 +16,8 @@ function InventoryDetails() {
             let response = await axios.get(
                 apiUrl + "/inventory"
             )
-            console.log(response.data[itemId])
-            setInventoryData(response.data[itemId])
+            let itemData = response.data.find((item) => item.id == itemId)
+            setInventoryData(itemData)
         } catch (error) {
             console.log(error)
         }
@@ -35,7 +35,7 @@ function InventoryDetails() {
                     <img src={back_arrow} alt="go back" />
                 </Link>
                 <h1 className="inventory-detail__title">{inventoryData.item_name}</h1>
-                <Link to={'/'}>
+                <Link to={`/inventory/${itemId}/edit`}>
                     <div className="inventory-detail__edit-container">
                         <img src={edit} alt="Edit Inventory Icon" className="inventory-detail__edit" />
                         <span className="warehouse__edit-text">Edit</span>
