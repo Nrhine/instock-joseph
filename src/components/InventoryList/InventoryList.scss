@@ -16,6 +16,10 @@
     background-color: $white;
     position: relative;
     top: -4rem;
+
+    @include desktop {
+      top: -6rem;
+    }
   }
 
   &__header {
@@ -59,6 +63,15 @@
       color: $slate;
     }
 
+    &-link {
+      width: 100%;
+      display: flex;
+
+      @include tablet {
+        width: fit-content;
+      }
+    }
+
     &-cta::before {
       content: '+ Add New Item';
       color: $white;
@@ -74,7 +87,7 @@
       background-color: $indigo;
 
       @include tablet {
-        width: 100%;
+        width: 9rem;
         padding: 0.5rem 1rem;
         margin: 0;
       }
@@ -158,6 +171,25 @@
   }
 
   &__item {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid $cloud;
+    padding: 1.5rem;
+    font-weight: 600;
+
+    @include tablet {
+      border-top: none;
+      border-bottom: 1px solid $cloud;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+    }
+
+    @include desktop {
+      padding: 1.5rem 2.5rem;
+    }
+
     &-category {
       @include tablet {
         width: 45%;
@@ -172,6 +204,58 @@
 
       @include tablet {
         display: none;
+      }
+    }
+
+    &-info-left {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+
+      @include tablet {
+        width: 45%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        padding-right: 0;
+      }
+    }
+    &-name-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+
+      &-name {
+        color: $indigo;
+        font-size: 0.875rem;
+      }
+
+      img {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      &-category {
+        font-size: 0.875rem;
+        color: $slate;
+      }
+    }
+
+    &-info-right {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+
+      @include tablet {
+        width: 51%; // Handles "status", "qty", "warehouse"
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start; // Space out the right-side content evenly
+        // gap: 1rem;
       }
     }
 
@@ -194,6 +278,13 @@
 
       @include tablet {
         padding: 0;
+      }
+    }
+
+    &-status {
+      width: 100%;
+      @include tablet {
+        width: 30%;
       }
     }
 
@@ -244,116 +335,12 @@
       }
     }
 
-    display: flex;
-    flex-wrap: wrap;
-    border-top: 1px solid $cloud;
-    padding: 1.5rem;
-    font-weight: 600;
-
-    @include tablet {
-      border-top: none;
-      border-bottom: 1px solid $cloud;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem;
-    }
-
-    @include desktop {
-      padding: 1.5rem 2.5rem;
-    }
-
-    &-info-left {
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-
-      @include tablet {
-        width: 49%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.5rem;
-        padding-right: 0;
-      }
-
-      &-label {
-        color: $slate;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-      }
-    }
-    &-name-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-
-      &-name {
-        color: $indigo;
-        font-size: 0.875rem;
-      }
-
-      img {
-        width: 1rem;
-        height: 1rem;
-      }
-
-      &-category {
-        font-size: 0.875rem;
-        color: $slate;
-      }
-    }
-
-    &-info-right {
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-
-      @include tablet {
-        width: 51%; // Handles "status", "qty", "warehouse"
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start; // Space out the right-side content evenly
-        gap: 1rem;
-      }
-    }
-    &-label {
-      color: $slate;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-    }
-
-    &-instock,
-    &-outstock {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.25rem 0.5rem;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      border-radius: 1.25rem;
-      width: fit-content;
-    }
-
-    &-instock {
-      background-color: rgba($green, 0.07);
-      color: $green;
-    }
-
-    &-outstock {
-      background-color: rgba($red, 0.07);
-      color: $red;
-    }
-
     &-quantity {
       font-size: 0.875rem;
 
       @include tablet {
-        text-align: right; // Align the quantity to the right
-        width: 22%;
+        text-align: left; // Align the quantity to the right
+        width: 20%;
       }
     }
 
@@ -362,21 +349,7 @@
 
       @include tablet {
         width: 28%;
-        text-align: right;
-      }
-    }
-
-    &-actions {
-      @include tablet {
-        width: 10%; // Matches the last column (actions)
-        display: flex;
-        justify-content: flex-end;
-        gap: 1rem; // Add space between action icons
-      }
-
-      &-link {
-        display: flex;
-        align-items: center;
+        text-align: left;
       }
     }
   }

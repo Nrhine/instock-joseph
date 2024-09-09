@@ -6,17 +6,7 @@ import right from '../../assets/Icons/chevron_right-24px.svg';
 import edit from '../../assets/Icons/edit-24px.svg';
 import trash from '../../assets/Icons/delete_outline-24px.svg';
 
-function InventoryList() {
-  const item = [
-    {
-      name: 'Television',
-      category: 'Electronics',
-      status: 'In Stock',
-      quantity: '500',
-      warehouse: 'Manhattan',
-    },
-  ];
-
+function InventoryList({ items }) {
   return (
     <section className="inventory__page">
       <section className="inventory__header">
@@ -27,7 +17,9 @@ function InventoryList() {
             placeholder="Search..."
             className="inventory__header-search"
           />
-          <CTA className="inventory__header-cta" />
+          <Link className="inventory__header-link" to="/inventory/add">
+            <CTA className="inventory__header-cta" />
+          </Link>
         </div>
       </section>
       <section className="inventory__sort">
@@ -55,37 +47,42 @@ function InventoryList() {
           <p className="inventory__sort-label">actions</p>
         </div>
       </section>
-      <section className="inventory__item">
-        <div className="inventory__item-info-left">
-          <p className="inventory__item-label">inventory item</p>
-          <Link className="inventory__item-name-link" to={'/'}>
-            <p className="inventory__item-name">{item[0].name}</p>
-            <img src={right} alt="go to item" />
-          </Link>
-          <p className="inventory__item-label">category</p>
-          <p className="inventory__item-category">{item[0].category}</p>
-        </div>
-        <div className="inventory__item-info-right">
-          <p className="inventory__item-label">status</p>
-          {item[0].status === 'In Stock' ? (
-            <p className="inventory__item-instock">{item[0].status}</p>
-          ) : (
-            <p className="inventory__item-outstock">{item[0].status}</p>
-          )}
-          <p className="inventory__item-label">qty</p>
-          <p className="inventory__item-quantity">{item[0].quantity}</p>
-          <p className="inventory__item-label">warehouse</p>
-          <p className="inventory__item-warehouse">{item[0].warehouse}</p>
-        </div>
-        <div className="inventory__item-actions">
-          <Link className="inventory__item-actions-link" to="/">
-            <img src={trash} alt="delete item" />
-          </Link>
-          <Link className="inventory__item-actions-link" to="/">
-            <img src={edit} alt="edit item" />
-          </Link>
-        </div>
-      </section>
+
+      {items.map((item) => (
+        <section key={item.id} className="inventory__item">
+          <div className="inventory__item-info-left">
+            <p className="inventory__item-label">inventory item</p>
+            <Link className="inventory__item-name-link" to={'/'}>
+              <p className="inventory__item-name">{item.item_name}</p>
+              <img src={right} alt="go to item" />
+            </Link>
+            <p className="inventory__item-label">category</p>
+            <p className="inventory__item-category">{item.category}</p>
+          </div>
+          <div className="inventory__item-info-right">
+            <p className="inventory__item-label">status</p>
+            <div className="inventory__item-status">
+              {item.status === 'In Stock' ? (
+                <p className="inventory__item-instock">{item.status}</p>
+              ) : (
+                <p className="inventory__item-outstock">{item.status}</p>
+              )}
+            </div>
+            <p className="inventory__item-label">qty</p>
+            <p className="inventory__item-quantity">{item.quantity}</p>
+            <p className="inventory__item-label">warehouse</p>
+            <p className="inventory__item-warehouse">{item.warehouse_name}</p>
+          </div>
+          <div className="inventory__item-actions">
+            <Link className="inventory__item-actions-link" to="/">
+              <img src={trash} alt="delete item" />
+            </Link>
+            <Link className="inventory__item-actions-link" to="/">
+              <img src={edit} alt="edit item" />
+            </Link>
+          </div>
+        </section>
+      ))}
     </section>
   );
 }
