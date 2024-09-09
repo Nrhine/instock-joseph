@@ -8,7 +8,7 @@ import WarehouseDetailsPage from './pages/WarehouseDetialsPage/WarehouseDetailsP
 import AddWarehousePage from "./pages/AddWarehousePage";
 import EditWarehousePage from "./pages/EditWarehousePage";
 import InventoryDetailsPage from './pages/InventoryDetailsPage';
-
+import EditInventoryPage from './pages/EditInventoryPage/EditInventoryPage';
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         <Route path="/" element={<WarehousesPage />} />
         <Route path="/warehouse" element={<WarehousesPage />} />
         <Route path="/inventory" element={<h1>InventoryListPage</h1>} />
+        <Route path="/inventory/:id/edit" element={<EditInventoryPage />} />
         <Route path="/warehouse/:id" element={<WarehouseDetailsPage />} />
         <Route path="/warehouse/add" element={<AddWarehousePage />} />
         <Route path="/warehouse/:id/edit" element={<EditWarehousePage />} />

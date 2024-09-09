@@ -71,7 +71,7 @@ function WarehouseInventoryList({ data, name }) {
                 {/* <Link to={<DeleteInventoryPopUp data={item.id} />}> */}
                   <span className="inventory__recycle-bin"><img src={recycleBin} alt="delete" /></span>
                 {/* </Link> */}
-                <Link to={`/inventory/${item.id}`}>
+                <Link to={`/inventory/${item.id}/edit`}>
                   <span className="inventory__edit"><img src={pencil} alt="edit" /></span>
                 </Link>
               </div>
