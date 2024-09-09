@@ -1,12 +1,27 @@
-import './InventoryList.scss';
-import { Link } from 'react-router-dom';
-import CTA from '../CTA/CTA';
-import sort from '../../assets/Icons/sort-24px.svg';
-import right from '../../assets/Icons/chevron_right-24px.svg';
-import edit from '../../assets/Icons/edit-24px.svg';
-import trash from '../../assets/Icons/delete_outline-24px.svg';
+import "./InventoryList.scss";
+import { Link } from "react-router-dom";
+import CTA from "../CTA/CTA";
+import sort from "../../assets/Icons/sort-24px.svg";
+import right from "../../assets/Icons/chevron_right-24px.svg";
+import edit from "../../assets/Icons/edit-24px.svg";
+import trash from "../../assets/Icons/delete_outline-24px.svg";
+import { useState } from "react";
+import DeleteInventoryPopUp from "../DeleteInventoryPopUp/DeleteInventoryPopUp";
 
 function InventoryList({ items }) {
+  const [popUp, setPopup] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState(null);
+
+  const handleDeleteClick = (item) => {
+    setItemToDelete(item);
+    setPopup(true);
+  };
+
+  const handleClosePopup = () => {
+    setPopup(false);
+    setItemToDelete(null);
+  };
+
   return (
     <section className="inventory__page">
       <section className="inventory__header">
@@ -52,7 +67,10 @@ function InventoryList({ items }) {
         <section key={item.id} className="inventory__item">
           <div className="inventory__item-info-left">
             <p className="inventory__item-label">inventory item</p>
-            <Link className="inventory__item-name-link" to={`/inventory/${item.id}`}>
+            <Link
+              className="inventory__item-name-link"
+              to={`/inventory/${item.id}`}
+            >
               <p className="inventory__item-name">{item.item_name}</p>
               <img src={right} alt="go to item" />
             </Link>
@@ -62,7 +80,7 @@ function InventoryList({ items }) {
           <div className="inventory__item-info-right">
             <p className="inventory__item-label">status</p>
             <div className="inventory__item-status">
-              {item.status === 'In Stock' ? (
+              {item.status === "In Stock" ? (
                 <p className="inventory__item-instock">{item.status}</p>
               ) : (
                 <p className="inventory__item-outstock">{item.status}</p>
@@ -74,15 +92,23 @@ function InventoryList({ items }) {
             <p className="inventory__item-warehouse">{item.warehouse_name}</p>
           </div>
           <div className="inventory__item-actions">
-            <Link className="inventory__item-actions-link" to="/">
-              <img src={trash} alt="delete item" />
-            </Link>
-            <Link className="inventory__item-actions-link" to={`/inventory/${item.id}/edit`}>
+            <img
+              src={trash}
+              alt="delete item"
+              onClick={() => handleDeleteClick(item)}
+            />
+            <Link
+              className="inventory__item-actions-link"
+              to={`/inventory/${item.id}/edit`}
+            >
               <img src={edit} alt="edit item" />
             </Link>
           </div>
         </section>
       ))}
+      {popUp && (
+        <DeleteInventoryPopUp item={itemToDelete} onClose={handleClosePopup} />
+      )}
     </section>
   );
 }

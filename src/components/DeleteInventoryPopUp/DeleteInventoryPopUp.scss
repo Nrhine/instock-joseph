@@ -4,7 +4,24 @@
     padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
-    position: relative;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    z-index: 9999;
+
+    &__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+    }
 
     &__close {
         position: absolute;
@@ -23,7 +40,14 @@
 
     @include tablet {
         & {
-            padding: 1.5rem 3rem;
+            padding: 2rem 4rem;
+            height: 17.5rem;
+            width: 85%;
+            margin: auto;
+            border-radius: 4px;
+            top: 18.5rem;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         &__buttons-container {
             justify-content: flex-end;
@@ -31,4 +55,12 @@
              
         }
     }
+
+    @include desktop {
+        & {
+            width: 50rem;
+            top: 20rem;
+        }
+    }
+
 }
