@@ -16,7 +16,7 @@ function WarehouseList() {
     const fetchWarehouses = async () => {
         try {
             let response = await axios.get(
-                apiUrl + "/warehouses"
+                apiUrl + "/api/warehouses"
             )
             if (Array.isArray(response.data)) {
                 setWarehousesData(response.data); 

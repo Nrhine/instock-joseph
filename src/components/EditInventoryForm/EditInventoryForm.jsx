@@ -27,8 +27,8 @@ const EditInventoryForm = () => {
         const fetchData = async () => {
             try {
                 const [inventoryResponse, warehousesResponse] = await Promise.all([
-                    axios.get(`${API_URL}/inventory/${id}`),
-                    axios.get(`${API_URL}/warehouses`)
+                    axios.get(`${API_URL}/api/inventories/${id}`),
+                    axios.get(`${API_URL}/api/warehouses`)
                 ]);
 
                 const inventoryData = inventoryResponse.data;
@@ -81,7 +81,7 @@ const EditInventoryForm = () => {
 
             console.log('Data being sent:', dataToSend);
 
-            const response = await axios.put(`${API_URL}/inventory/${id}`, dataToSend);
+            const response = await axios.put(`${API_URL}/api/inventories/${id}`, dataToSend);
             console.log('Server response:', response.data);
 
             // Redirect on success
