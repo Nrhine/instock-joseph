@@ -39,17 +39,7 @@ function WarehouseList() {
 
     if (error) {
         return <div>Error: {error}</div>; 
-    }/*
-    const sampleData = {
-        "warehouse_name": "Manhattan",
-        "address": "503 Broadway",
-        "city": "New York",
-        "country": "USA",
-        "contact_name": "Parmin Aujla",
-        "contact_phone": "+1 (616) 123-1234",
-        "contact_email": "paujla@instock.com"
     }
-*/
   return (
     <>
       <div className="warehouse-list">
@@ -80,8 +70,6 @@ function WarehouseList() {
             </div>
             <h4 className="warehouse-list__action-header">ACTIONS</h4>
           </div>
-
-          {/* <WarehouseItem data={sampleData} /> */}
           {warehousesData.map((warehouse) => (
             <WarehouseItem key={warehouse.id} data={warehouse} />
           ))}

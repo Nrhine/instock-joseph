@@ -52,7 +52,7 @@ function InventoryList({ items }) {
         <section key={item.id} className="inventory__item">
           <div className="inventory__item-info-left">
             <p className="inventory__item-label">inventory item</p>
-            <Link className="inventory__item-name-link" to={'/'}>
+            <Link className="inventory__item-name-link" to={`/inventory/${item.id}`}>
               <p className="inventory__item-name">{item.item_name}</p>
               <img src={right} alt="go to item" />
             </Link>
@@ -77,7 +77,7 @@ function InventoryList({ items }) {
             <Link className="inventory__item-actions-link" to="/">
               <img src={trash} alt="delete item" />
             </Link>
-            <Link className="inventory__item-actions-link" to="/">
+            <Link className="inventory__item-actions-link" to={`/inventory/${item.id}/edit`}>
               <img src={edit} alt="edit item" />
             </Link>
           </div>

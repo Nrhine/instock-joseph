@@ -15,7 +15,7 @@ function WarehouseDetails({ data }) {
     <>
       <section className="warehouse">
         <div className="warehouse__container-top">
-          <Link to={'/'}>
+          <Link to={'/warehouse'}>
             <img src={back_arrow} alt="go back" />
           </Link>
           <h1 className="warehouse__header">{warehouse.warehouse_name}</h1>
