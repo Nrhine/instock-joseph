@@ -15,8 +15,8 @@ function WarehouseDetailsPage() {
   const getWarehouseData = async () => {
     try {
       const [warehouseResponse, inventoryResponse] = await Promise.all([
-        axios.get(`${apiUrl}/warehouses/${id}`),
-        axios.get(`${apiUrl}/warehouses/${id}/inventories`),
+        axios.get(`${apiUrl}/api/warehouses/${id}`),
+        axios.get(`${apiUrl}/api/warehouses/${id}/inventories`),
       ]);
 
       setWarehouse(warehouseResponse.data);
