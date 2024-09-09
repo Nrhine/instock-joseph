@@ -35,10 +35,10 @@ function WarehouseDetailsPage() {
   }
 
   return (
-    <>
+    <main className="warehouse-details__page">
       <WarehouseDetails data={warehouse} />
       <WarehouseInventoryList data={inventory} name={warehouse} />
-    </>
+    </main>
   );
 }
 
