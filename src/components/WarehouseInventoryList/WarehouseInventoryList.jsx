@@ -32,7 +32,7 @@ function WarehouseInventoryList({ data, name }) {
                     <h4 className="warehouse-inventory__inventory-menu warehouse-inventory__mobile">Inventory Item</h4>
                     <Link to={`/inventory/${item.id}`}>
                       <div className="warehouse-inventory__item-chevron">
-                        <h3 className="warehouse-inventory__inventory-item-name warehouse-inventory__item">{item.item_name}</h3>
+                        <h3 className="warehouse-inventory__inventory-item-name warehouse-inventory__item semi-bold">{item.item_name}</h3>
                         <img className="warehouse-inventory__chevron" src={chevron} alt="link icon" />
                       </div>
                     </Link>

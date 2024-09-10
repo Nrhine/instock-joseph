@@ -58,8 +58,8 @@ function InventoryDetails() {
                     <div className="inventory-detail__row--split">
                         <div className="inventory-detail__cell">
                             <h4 className="inventory-detail__label">STATUS:</h4>
-                            <div className={`inventory-detail__tag ${inventoryData.status === 'In Stock' ? 'inventory-detail__tag--in-stock' : 'inventory-detail__tag--out-of-stock'}`}>
-                                <p className={`p2 inventory-detail__copy ${inventoryData.status === 'In Stock' ? 'inventory-detail__stock--in' : 'inventory-detail__stock--out'}`}>{inventoryData.status}</p>
+                            <div className={`inventory-detail__tag semi-bold ${inventoryData.status === 'In Stock' ? 'inventory-detail__tag--in-stock' : 'inventory-detail__tag--out-of-stock'}`}>
+                                <p className={`p2 inventory-detail__copy semi-bold ${inventoryData.status === 'In Stock' ? 'inventory-detail__stock--in' : 'inventory-detail__stock--out'}`}>{inventoryData.status}</p>
                             </div>
                         </div>
                         <div className="inventory-detail__cell">

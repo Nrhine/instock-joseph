@@ -31,7 +31,16 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            width: 50%;
+        }
+    }
+    &__location {
+        @include tablet {
+            width: 48%;
+        }
+    }
+    &__contact {
+        @include tablet {
+            width: 52%;
         }
     }
     &__cell {
@@ -39,6 +48,12 @@
         @include tablet {
             width: 50%;
             padding-right: 1rem;
+            &--small {
+                width: 46%;
+            }
+            &--big {
+                width: 54%;
+            }
         }
     }
     &__label {
