@@ -9,37 +9,43 @@ import { Link } from "react-router-dom";
 function WarehouseList() {
   const apiUrl = `${import.meta.env.VITE_API_URL}`;
 
-    const [warehousesData, setWarehousesData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null); 
+  const [warehousesData, setWarehousesData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    const fetchWarehouses = async () => {
-        try {
-            let response = await axios.get(
-                apiUrl + "/api/warehouses"
-            )
-            if (Array.isArray(response.data)) {
-                setWarehousesData(response.data); 
-            } else {
-                setError("Invalid data format");
-            }
-        } catch (error) {
-            console.error(error);
-        } finally {
-            setLoading(false);  
-        }
-    };
-
-    useEffect(() => {
-        fetchWarehouses()
-    }, [])
-    if (loading) {
-        return <div>Loading...</div>;  
+  const fetchWarehouses = async () => {
+    try {
+      let response = await axios.get(apiUrl + "/api/warehouses");
+      if (Array.isArray(response.data)) {
+        setWarehousesData(response.data);
+      } else {
+        setError("Invalid data format");
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
+  };
 
-    if (error) {
-        return <div>Error: {error}</div>; 
-    }
+  useEffect(() => {
+    fetchWarehouses();
+  }, []);
+
+  const handleWarehouseDeleted = (deletedId) => {
+    setWarehousesData((prevData) =>
+      prevData.filter((warehouse) => warehouse.id !== deletedId)
+    );
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
     <>
       <div className="warehouse-list">
@@ -71,7 +77,11 @@ function WarehouseList() {
             <h4 className="warehouse-list__action-header">ACTIONS</h4>
           </div>
           {warehousesData.map((warehouse) => (
-            <WarehouseItem key={warehouse.id} data={warehouse} />
+            <WarehouseItem
+              key={warehouse.id}
+              data={warehouse}
+              onWarehouseDeleted={handleWarehouseDeleted}
+            />
           ))}
         </div>
       </div>

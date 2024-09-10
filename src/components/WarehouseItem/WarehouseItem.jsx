@@ -4,10 +4,12 @@ import edit from "../../assets/Icons/edit-24px.svg";
 import chevron from "../../assets/Icons/chevron_right-24px.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 import DeleteWarehousePopUp from "../DeleteWarehousePopUp/DeleteWarehousePopUp";
 
-function WarehouseItem({ data }) {
+function WarehouseItem({ data, onWarehouseDeleted }) {
   const [popUp, setPopup] = useState(false);
+  const apiUrl = `${import.meta.env.VITE_API_URL}`;
 
   const handleDeleteClick = () => {
     setPopup(true);
@@ -15,6 +17,17 @@ function WarehouseItem({ data }) {
 
   const handleClosePopup = () => {
     setPopup(false);
+  };
+
+  const handleDeleteWarehouse = async () => {
+    try {
+      await axios.delete(`${apiUrl}/warehouses/${data.id}`);
+      onWarehouseDeleted(data.id);
+    } catch (error) {
+      console.error("Error deleting warehouse:", error);
+    } finally {
+      handleClosePopup();
+    }
   };
 
   return (
@@ -76,6 +89,7 @@ function WarehouseItem({ data }) {
         <DeleteWarehousePopUp
           warehouseName={data.warehouse_name}
           onClose={handleClosePopup}
+          onDelete={handleDeleteWarehouse}
         />
       )}
     </>
