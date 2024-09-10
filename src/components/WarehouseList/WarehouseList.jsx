@@ -5,6 +5,7 @@ import WarehouseItem from "../WarehouseItem/WarehouseItem";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import sort from "../../assets/Icons/sort-24px.svg";
 
 function WarehouseList() {
   const apiUrl = `${import.meta.env.VITE_API_URL}`;
@@ -15,7 +16,7 @@ function WarehouseList() {
 
   const fetchWarehouses = async () => {
     try {
-      let response = await axios.get(apiUrl + "/warehouses");
+      let response = await axios.get(apiUrl + "/api/warehouses");
       if (Array.isArray(response.data)) {
         setWarehousesData(response.data);
       } else {
@@ -67,12 +68,22 @@ function WarehouseList() {
         <div className="warehouse-list__table">
           <div className="warehouse-list__header-row">
             <div className="warehouse-list__table-headers">
-              <h4 className="warehouse-list__table-header">WAREHOUSE</h4>
-              <h4 className="warehouse-list__table-header">ADDRESS</h4>
-              <h4 className="warehouse-list__table-header">CONTACT NAME</h4>
-              <h4 className="warehouse-list__table-header">
-                CONTACT INFORMATION
-              </h4>
+              <div className="warehouse-list__header-cell">
+                <h4 className="warehouse-list__table-header">WAREHOUSE</h4>
+                <img src={sort} alt="sort icon" className="warehouse-list__icon" />
+              </div>
+              <div className="warehouse-list__header-cell">
+                <h4 className="warehouse-list__table-header">ADDRESS</h4>
+                <img src={sort} alt="sort icon" className="warehouse-list__icon" />
+              </div>
+              <div className="warehouse-list__header-cell">
+                <h4 className="warehouse-list__table-header">CONTACT NAME</h4>
+                <img src={sort} alt="sort icon" className="warehouse-list__icon" />
+              </div>
+              <div className="warehouse-list__header-cell--big">
+                <h4 className="warehouse-list__table-header">CONTACT INFORMATION</h4>
+                <img src={sort} alt="sort icon" className="warehouse-list__icon" />
+              </div>
             </div>
             <h4 className="warehouse-list__action-header">ACTIONS</h4>
           </div>

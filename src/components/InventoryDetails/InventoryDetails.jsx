@@ -14,7 +14,7 @@ function InventoryDetails() {
     const fetchItem = async () => {
         try {
             let response = await axios.get(
-                apiUrl + "/inventory"
+                apiUrl + "/api/inventories"
             )
             let itemData = response.data.find((item) => item.id == itemId)
             setInventoryData(itemData)
@@ -31,7 +31,7 @@ function InventoryDetails() {
     <>
         <section className="inventory-detail">
             <div className="inventory-detail__top">
-                <Link to={'/'}>
+                <Link to={'/inventory'}>
                     <img src={back_arrow} alt="go back" />
                 </Link>
                 <h1 className="inventory-detail__title">{inventoryData.item_name}</h1>
@@ -58,8 +58,8 @@ function InventoryDetails() {
                     <div className="inventory-detail__row--split">
                         <div className="inventory-detail__cell">
                             <h4 className="inventory-detail__label">STATUS:</h4>
-                            <div className={`inventory-detail__tag ${inventoryData.status === 'In Stock' ? 'inventory-detail__tag--in-stock' : 'inventory-detail__tag--out-of-stock'}`}>
-                                <p className={`p2 inventory-detail__copy ${inventoryData.status === 'In Stock' ? 'inventory-detail__stock--in' : 'inventory-detail__stock--out'}`}>{inventoryData.status}</p>
+                            <div className={`inventory-detail__tag semi-bold ${inventoryData.status === 'In Stock' ? 'inventory-detail__tag--in-stock' : 'inventory-detail__tag--out-of-stock'}`}>
+                                <p className={`p2 inventory-detail__copy semi-bold ${inventoryData.status === 'In Stock' ? 'inventory-detail__stock--in' : 'inventory-detail__stock--out'}`}>{inventoryData.status}</p>
                             </div>
                         </div>
                         <div className="inventory-detail__cell">

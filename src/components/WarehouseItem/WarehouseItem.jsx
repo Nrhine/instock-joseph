@@ -21,7 +21,7 @@ function WarehouseItem({ data, onWarehouseDeleted }) {
 
   const handleDeleteWarehouse = async () => {
     try {
-      await axios.delete(`${apiUrl}/warehouses/${data.id}`);
+      await axios.delete(`${apiUrl}/api/warehouses/${data.id}`);
       onWarehouseDeleted(data.id);
     } catch (error) {
       console.error("Error deleting warehouse:", error);
@@ -58,11 +58,11 @@ function WarehouseItem({ data, onWarehouseDeleted }) {
             </div>
           </div>
           <div className="warehouse-item__contact">
-            <div className="warehouse-item__cell">
+            <div className="warehouse-item__cell warehouse-item__cell--small">
               <h3 className="warehouse-item__label">CONTACT NAME</h3>
               <p className="p2 warehouse-item__copy">{data.contact_name}</p>
             </div>
-            <div className="warehouse-item__cell">
+            <div className="warehouse-item__cell warehouse-item__cell--big">
               <h3 className="warehouse-item__label">CONTACT INFORMATION</h3>
               <p className="p2 warehouse-item__copy">
                 {data.contact_phone}
