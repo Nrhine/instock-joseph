@@ -14,7 +14,7 @@ function InventoryDetails() {
     const fetchItem = async () => {
         try {
             let response = await axios.get(
-                apiUrl + "/inventory"
+                apiUrl + "/api/inventories"
             )
             let itemData = response.data.find((item) => item.id == itemId)
             setInventoryData(itemData)
@@ -31,7 +31,7 @@ function InventoryDetails() {
     <>
         <section className="inventory-detail">
             <div className="inventory-detail__top">
-                <Link to={'/'}>
+                <Link to={'/inventory'}>
                     <img src={back_arrow} alt="go back" />
                 </Link>
                 <h1 className="inventory-detail__title">{inventoryData.item_name}</h1>

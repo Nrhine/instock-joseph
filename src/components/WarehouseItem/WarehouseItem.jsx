@@ -21,7 +21,7 @@ function WarehouseItem({ data, onWarehouseDeleted }) {
 
   const handleDeleteWarehouse = async () => {
     try {
-      await axios.delete(`${apiUrl}/warehouses/${data.id}`);
+      await axios.delete(`${apiUrl}/api/warehouses/${data.id}`);
       onWarehouseDeleted(data.id);
     } catch (error) {
       console.error("Error deleting warehouse:", error);
